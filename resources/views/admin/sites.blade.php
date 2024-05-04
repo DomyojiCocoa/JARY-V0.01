@@ -39,7 +39,7 @@
         <table class="m-w-full  divide-y divide-gray-200 ">
             <thead class="bg-gray-50">
             <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">ID</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"></th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Nombre</th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Direccion</th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Horario</th>
@@ -50,7 +50,7 @@
             <tbody class="bg-white divide-y divide-gray-200">
             @foreach ($sites as $site)
                 <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $site->id }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap"><img src="{{ $site->url_img }}" alt=""></td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $site->name_site }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $site->address }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $site->schedule }}</td>
