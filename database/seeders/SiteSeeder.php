@@ -14,7 +14,7 @@ class SiteSeeder extends Seeder
     public function run(): void
     {
         Site::create([
-            
+
             'name_site' => 'La castellana',
             'address' => 'La castellana',
             'schedule' => '7:00am-12:00pm 1:00pm-5:30pm',
@@ -30,14 +30,14 @@ class SiteSeeder extends Seeder
             'url_img' => 'https://pbs.twimg.com/media/F4KbtBQW0AEoyOV.jpg',
             'url_map' => 'https://www.google.com/maps/place/Esperanza,+Cartagena+de+Indias,+Provincia+de+Cartagena,+Bolívar/@10.4147948,-75.5203061,17z/data=!3m1!4b1!4m6!3m5!1s0x8ef625847276b737:0x837b2553b40eb856!8m2!3d10.4133202!4d-75.5196631!16s%2Fg%2F1thtf5sf?entry=ttu',
         ]);
-        Site::create([
-            'name_site' => '',
-            'address' => '',
-            'schedule' => '',
-            'weather_preferable' => '',
-            'url_img' => '',
-            'url_map' => '',
-        ]);
+        // Site::create([
+        //     'name_site' => '',
+        //     'address' => '',
+        //     'schedule' => '',
+        //     'weather_preferable' => '',
+        //     'url_img' => '',
+        //     'url_map' => '',
+        // ]);
         // Site::create([
         //     'name_site' => '',
         //     'address' => '',
