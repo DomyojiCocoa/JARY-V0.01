@@ -23,7 +23,6 @@ class ReviewController extends Controller
      */
     public function create(Request $request)
     {
-        $usuario = User::find($request->iduser);      
         $sitio = Site::find($request->idsite);
         Review::create([
             'id_site' => $sitio->id,
@@ -34,9 +33,8 @@ class ReviewController extends Controller
         ]);
         $site = Site::find($request->idsite);
         $reviews = Review::where('id_site', $request->idsite)->get();
-        // $ola->save();
-        // return redirect()->route('rev.show/'.$request->idsite.'?');
         return view('description',compact('site','reviews'));
+        // return redirect()->route('rev.show',compact('site','reviews'));
     }
 
     /**
@@ -54,24 +52,8 @@ class ReviewController extends Controller
     {
         $site = Site::find($id);
         $reviews = Review::where('id_site', $id)->get();
-        // foreach ($reviews as $key => $value) {
-        //     # code...
-        // }
-        // $users = array();
-        $users = [];
-        for ($i=0; $i < $reviews->count() ; $i++) { 
-            echo($reviews[$i]->id_user );
-            $users = User::find($reviews[$i]->id_user);
-            // list(User::where('id', $reviews[$i]->id_user)->get()->id) = $users;
-        }
-        // echo($users);
-        // print_r($users);
-        // $users = User::where('id', $reviews->id_user)->get();
 
-        // $users = Review::where('id_user',$reviews->id_user);
-        
-        
-        return view('description',compact('site','reviews','users'));
+        return view('description',compact('site','reviews'));
     }
 
     /**

@@ -70,12 +70,24 @@
                                     <div class="relative bg-white w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
                                         <div class="p-8">
                                             <!-- Contenido del modal -->
-                                            <h2 class="text-xl font-semibold mb-4">Editar informacion sitio</h2>
+                                            <h2 class="text-xl font-semibold mb-4 ">Editar informacion sitio</h2>
                                             <form action="{{ route('site.update', $site)}}" method="post">
                                                 @csrf
                                                 @method('put')
-                                                <input type="time" name="hora">
-                                                <input type="time" name="horasalida">
+                                                <h3>Nombre del sitio</h3>
+                                                <input type="text" placeholder="name" name="name" value="{{ $site->name_site }}">
+                                                <h3>Direccion</h3>
+                                                <input type="text" placeholder="address" name="address" value="{{ $site->address }}">
+                                                <h3>Hora de apertura</h3>
+                                                <input type="time" placeholder="hora" name="hora">
+                                                <h3>Hora de cierre</h3>
+                                                <input type="time" placeholder="horasalida" name="horasalida">
+                                                <h3>Climas para recomendar</h3>
+                                                <input type="text" placeholder="climas" name="climas" value="{{ $site->weather_preferable }}">
+                                                <h3>Imagen del sitio</h3>
+                                                <input type="text" placeholder="url_foto" name="url_foto" value="{{ $site->url_img }}">
+                                                <h3>Link Mapa</h3>
+                                                <input type="text" placeholder="url_map" name="url_map" value="{{ $site->url_map }}">
                                                 <input type="hidden" name="id" value="{{ $site->id }}">
                                                 <button type="submit">Enviar</button>
                                             </form>
@@ -107,17 +119,16 @@
                                                 @method('delete')
                                                 <h2>Esta seguro de eliminar este sitio?</h2>
                                                 <input type="hidden" name="id" value="{{ $site->id }}">
-                                                <button type="submit">Eliminar</button>
                                             </form>
                                         </div>
                                         <div class="p-4 bg-gray-100 text-right">
+                                            <button type="submit" class="bg-red-500 pd-50">Eliminar</button>
                                             <button @click="showModal = false" class="text-sm font-semibold text-gray-700">Cerrar</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </td>
                 </tr>
             @endforeach
