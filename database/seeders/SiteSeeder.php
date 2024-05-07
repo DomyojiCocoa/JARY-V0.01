@@ -27,7 +27,7 @@ class SiteSeeder extends Seeder
             'address' => 'En el centro',
             'schedule' => 'todo el dia',
             'weather_preferable' => 'sol',
-            'url_img' => 'https://pbs.twimg.com/media/F4KbtBQW0AEoyOV.jpg',
+            'url_img' => 'https://tiplr.com/wp-content/uploads/2020/08/68.jp_20200807000052.jpeg',
             'url_map' => 'https://www.google.com/maps/place/Esperanza,+Cartagena+de+Indias,+Provincia+de+Cartagena,+Bolívar/@10.4147948,-75.5203061,17z/data=!3m1!4b1!4m6!3m5!1s0x8ef625847276b737:0x837b2553b40eb856!8m2!3d10.4133202!4d-75.5196631!16s%2Fg%2F1thtf5sf?entry=ttu',
         ]);
         // Site::create([
