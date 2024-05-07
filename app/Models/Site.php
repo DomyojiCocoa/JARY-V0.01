@@ -11,7 +11,8 @@ class Site extends Model
     protected $fillable = [
         'name_site',
         'address',
-        'schedule',
+        'schedule_open',
+        'schedule_close',
         'weather_preferable',
         'url_img',
         'url_map',
