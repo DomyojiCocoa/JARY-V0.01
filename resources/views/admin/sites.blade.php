@@ -63,7 +63,6 @@
                                 </button>
                             </div>
 
-
                             <!-- Modal -->
                             <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
                                 <div class="flex items-center justify-center min-h-screen">
