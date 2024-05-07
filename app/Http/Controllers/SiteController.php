@@ -29,7 +29,8 @@ class SiteController extends Controller
         $sitio = Site::create([
             'name_site' => $request->name,
             'address' => $request->address,
-            'schedule' => $request->hora . ' '.  $request->horasalida,
+            'schedule_open' => $request->hora,
+            'schedule_close' => $request->horasalida,
             'weather_preferable' => $request->climas,
             'url_img' => $request->url_foto,
             'url_map' => $request->url_map
@@ -69,7 +70,13 @@ class SiteController extends Controller
     {
 
         $Site = Site::find($request->id);
-        $Site->schedule = $request->hora . ' '.  $request->horasalida;
+        $Site->name_site = $request->name;
+        $Site->address = $request->address;
+        $Site->schedule_open = strval($request->hora);
+        $Site->schedule_close = strval($request->horasalida);
+        $site->weather_preferable = $request->clima;
+        $site->url_img = $request->url_foto;
+        $site->url_map = $request->url_map;
         $Site->save();
 
         return redirect()->route('site.index');

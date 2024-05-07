@@ -1,4 +1,6 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
+<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
 <x-app-layout>
 
 <div x-data="{ showModal: false } " class="bg-Color2">
@@ -17,13 +19,21 @@
                     <!-- Contenido del modal -->
                     <h2 class="text-xl font-semibold mb-4">Agregar nuevo sitio</h2>
                     <form action="{{ route('site.create') }}" method="get">
-                        <input type="text" placeholder="name" name="name">
-                        <input type="text" placeholder="address" name="address">
-                        <input type="time" placeholder="hora" name="hora">
-                        <input type="time" placeholder="horasalida" name="horasalida">
-                        <input type="text" placeholder="climas" name="climas">
-                        <input type="text" placeholder="url_foto" name="url_foto">
-                        <input type="text" placeholder="url_map" name="url_map">
+                        <input type="text" name="name">
+                        <input type="text" name="address">
+                        <input type="time" name="hora">
+                        <input type="time" name="horasalida">
+                        <div class="py-4">
+                            <select name="climas" id="climas" value="" multiple>
+                                <option value="Soleado">Soleado</option>
+                                <option value="Nublado">Nublado</option>
+                                <option value="LLuvia">LLuvia</option>
+                                <option value="Nevando">Nevando</option>
+                                <option value="Vino messi a visitar el real cartagena">Vino messi a visitar el real cartagena</option>
+                            </select>
+                        </div>
+                        <input type="text" name="url_foto">
+                        <input type="text" name="url_map">
                         <button type="submit">Enviar</button>
                     </form>
                 </div>
@@ -42,7 +52,8 @@
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Imagen</th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Nombre</th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Direccion</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Horario</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Hora apertura</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Hora cierre</th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Climas</th>
                 <th scope="col" class="px-9 py-3 w-6text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Opciones</th>
             </tr>
@@ -53,7 +64,8 @@
                     <td class="px-6 py-4 whitespace-nowrap"><img src="{{ $site->url_img }}" alt="" class="w-96 h-60"></td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $site->name_site }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $site->address }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $site->schedule }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $site->schedule_open }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $site->schedule_close }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $site->weather_preferable }}</td>
                     <td class="  px-6 pt-28  whitespace-nowrap flex">
                         <div x-data="{ showModal: false } " class="">
@@ -88,16 +100,25 @@
                                                 </div>
                                                 <label for="" class="text-yellow-500">Hora de apertura</label>
                                                 <div class="py-4">
-                                                    <input type="time" placeholder="hora" name="hora">
+                                                    <input type="time" name="hora" value="{{ $site->schedule_open }}">
                                                 </div>
                                                 <label for="" class="text-yellow-500">Hora de cierre</label>
                                                 <div class="py-4">
-                                                    <input type="time" placeholder="horasalida" name="horasalida">
+                                                    <input type="time" name="horasalida" value="{{ $site->schedule_clase }}">
                                                 </div>
                                                 <label for="" class="text-yellow-500">Climas para recomendar</label>
                                                 <div class="py-4">
-                                                    <input type="text" placeholder="climas" name="climas" value="{{ $site->weather_preferable }}">
+                                                    <select name="climas1" id="climas1" multiple>
+                                                        <option value="Soleado">Soleado</option>
+                                                        <option value="Nublado">Nublado</option>
+                                                        <option value="LLuvia">LLuvia</option>
+                                                        <option value="Nevando">Nevando</option>
+                                                        <option value="Vino messi a visitar el real cartagena">Vino messi a visitar el real cartagena</option>
+                                                    </select>
                                                 </div>
+                                                {{-- <div class="py-4">
+                                                    <input type="text" placeholder="climas" name="climas" value="{{ $site->weather_preferable }}">
+                                                </div> --}}
                                                 <label for="" class="text-yellow-500">Imagen del sitio</label>
                                                 <div class="py-4">
                                                     <input type="text" placeholder="url_foto" name="url_foto" value="{{ $site->url_img }}">
@@ -113,7 +134,7 @@
                                             </form>
                                         </div>
 
-                                    </div>
+ww                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -161,6 +182,10 @@
 </div>
 
 </x-app-layout>
+<script>
+    new MultiSelectTag('climas')  // id
+    new MultiSelectTag('climas1')  // id
+</script>
 {{-- Esto es para eliminar sitios --}}
 {{-- @foreach ($sites as $item)
 <form action="{{ route('site.destroy',$item) }}" method="POST">
