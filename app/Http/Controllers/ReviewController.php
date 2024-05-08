@@ -52,24 +52,8 @@ class ReviewController extends Controller
     {
         $site = Site::find($id);
         $reviews = Review::where('id_site', $id)->get();
-        // foreach ($reviews as $key => $value) {
-        //     # code...
-        // }
-        // $users = array();
-        $users = [];
-        for ($i=0; $i < $reviews->count() ; $i++) { 
-            echo($reviews[$i]->id_user );
-            $users = User::find($reviews[$i]->id_user);
-            // list(User::where('id', $reviews[$i]->id_user)->get()->id) = $users;
-        }
-        // echo($users);
-        // print_r($users);
-        // $users = User::where('id', $reviews->id_user)->get();
-
-        // $users = Review::where('id_user',$reviews->id_user);
         
-        
-        return view('description',compact('site','reviews','users'));
+        return view('description',compact('site','reviews'));
     }
 
     /**
