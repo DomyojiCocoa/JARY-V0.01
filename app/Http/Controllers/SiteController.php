@@ -29,7 +29,8 @@ class SiteController extends Controller
         $sitio = Site::create([
             'name_site' => $request->name,
             'address' => $request->address,
-            'schedule' => $request->hora . ' '.  $request->horasalida,
+            'schedule_open' => $request->hora ,
+            'schedule_close' => $request->horasalida,
             'weather_preferable' => $request->climas,
             'url_img' => $request->url_foto,
             'url_map' => $request->url_map
