@@ -59,7 +59,7 @@
                         <div x-data="{ showModal: false } " class="">
                             <div class="">
                                 <button @click="showModal = true" class="bg-Color1 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded">
-                                    EDITAR
+                                    Editar
                                 </button>
                             </div>
 
