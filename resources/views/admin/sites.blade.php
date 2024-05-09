@@ -104,7 +104,7 @@
                                                 </div>
                                                 <label for="" class="text-yellow-500">Hora de cierre</label>
                                                 <div class="py-4">
-                                                    <input type="time" name="horasalida" value="{{ $site->schedule_clase }}">
+                                                    <input type="time" name="horasalida" value="{{ $site->schedule_close }}">
                                                 </div>
                                                 <label for="" class="text-yellow-500">Climas para recomendar</label>
                                                 <div class="py-4">
