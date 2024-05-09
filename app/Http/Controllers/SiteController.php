@@ -102,9 +102,26 @@ class SiteController extends Controller
         return view('allsites',compact('sites'));
     }
 
-    public function generateGuia() 
+    public function generateGuide() 
     {
-        
+        $apiKey = 'c75fdf7c5e7cd7eb463edaac441ed452';
+        $city = 'Cartagena,CO';
+
+        $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric&lang=es";
+
+        $client = new Client();
+
+        $response = $client->get($apiUrl);
+
+        $data = json_decode($response->getBody(), true);
+
+        $temperature = $data['main']['temp'];
+        $weatherDescription = $data['weather'][0]['description'];
+//$weatherDescription
+        $sites = Site::where('weather_preferable', 'LIKE', '%Soleado%')->get();
+
+        return view('recommendation',compact('sites'));
+
     }
     
     public function getWeather() 

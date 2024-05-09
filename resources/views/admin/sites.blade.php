@@ -39,19 +39,19 @@
 </div>
 <div class="overflow-x-auto bg-Color2 h-full">
     <div class="overflow-x-auto w-full flex justify-center">
-        <table class="m-w-full  divide-y divide-gray-200 ">
+        <table class="m-w-full  divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Imagen</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Nombre</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Direccion</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Hora apertura</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Hora cierre</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Climas</th>
+                    <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">Imagen</th>
+                    <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+                    <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">Direccion</th>
+                    <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">Hora apertura</th>
+                    <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">Hora cierre</th>
+                    <th scope="col" class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">Climas</th>
                     <th scope="col" class="px-9 py-3 w-6text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Opciones</th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
+            <tbody class="bg-white divide-y divide-gray-200 text-center">
                 @foreach ($sites as $site)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap"><img src="{{ $site->url_img }}" alt="" class="w-96 h-60"></td>
@@ -70,7 +70,7 @@
                             
                             
                             <!-- Modal -->
-                            <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
+                            <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto ">
                                 <div class="flex items-center justify-center min-h-screen">
                                     <div class="relative bg-Color2 border-yellow-500 border-2 w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
                                         <div class="p-8">
@@ -84,20 +84,20 @@
                                                 @method('put')
                                                 <label for="" class="text-yellow-500">Nombre del sitio</label>
                                                 <div class="py-4">
-                                                    <input type="text" placeholder="name" name="name" value="{{ $site->name_site }}">
+                                                    <input type="text" placeholder="name" name="name" value="{{ $site->name_site }}" class="w-64">
                                                 </div>
                                                 
                                                 <label for="" class="text-yellow-500">Direccion</label>
                                                 <div class="py-4">
-                                                    <input type="text" placeholder="address" name="address" value="{{ $site->address }}">
+                                                    <input type="text" placeholder="address" name="address" value="{{ $site->address }}"class="w-64">
                                                 </div>
                                                 <label for="" class="text-yellow-500">Hora de apertura</label>
                                                 <div class="py-4">
-                                                    <input type="time" name="hora" value="{{ $site->schedule_open }}">
+                                                    <input type="time" name="hora" value="{{ $site->schedule_open }}"class="w-64">
                                                 </div>
                                                 <label for="" class="text-yellow-500">Hora de cierre</label>
                                                 <div class="py-4">
-                                                    <input type="time" name="horasalida" value="{{ $site->schedule_close }}">
+                                                    <input type="time" name="horasalida" value="{{ $site->schedule_close }}"class="w-64">
                                                 </div>
                                                 <label for="" class="text-yellow-500">Climas para recomendar</label>
                                                 <div class="py-4">
@@ -109,7 +109,7 @@
                                                         <option value="Vino messi a visitar el real cartagena">Vino messi a visitar el real cartagena</option>
                                                     </select> --}}
                                                     {{-- <x-weathers></x-weathers> --}}
-                                                    <x-weathersedit></x-weathersedit>
+                                                    <x-weathersedit weather="{{ $site->weather_preferable }}" ></x-weathersedit>
                                                     {{-- <select name="climas1[]" id="climas1" value="{{ $site->weather_preferable }}" multiple>
                                                     </select> --}}
                                                 </div>
@@ -118,15 +118,15 @@
                                                 </div> --}}
                                                 <label for="" class="text-yellow-500">Imagen del sitio</label>
                                                 <div class="py-4">
-                                                    <input type="text" placeholder="url_foto" name="url_foto" value="{{ $site->url_img }}">
+                                                    <input type="text" placeholder="url_foto" name="url_foto" value="{{ $site->url_img }}" class="w-64">
                                                 </div>
                                                 <label for="" class="text-yellow-500">Link del mapa</label>
                                                 <div class="py-4">
-                                                    <input type="text" placeholder="url_map" name="url_map" value="{{ $site->url_map }}">
+                                                    <input type="text" placeholder="url_map" name="url_map" value="{{ $site->url_map }}"class="w-64">
                                                 </div>
                                                 <input type="hidden" name="id" value="{{ $site->id }}">
                                                 <div class="py-4">
-                                                    <button type="submit" class="w-20 bg-white font-bold py-2 px-4 rounded hover:bg-yellow-500">Enviar</button>
+                                                    <button type="submit" class="w-20 bg-white font-bold py-2 px-4 rounded hover:bg-yellow-500"class="w-64">Enviar</button>
                                                 </div>
                                             </form>
                                         </div>

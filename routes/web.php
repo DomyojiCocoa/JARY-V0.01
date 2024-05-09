@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/site', SiteController::class)->names('site');
     Route::resource('/user', UserController::class)->names('user');
     Route::resource('/review', ReviewController::class)->names('rev');
+    Route::get('/recommendation', [SiteController::class,'generateGuide'])->name('recommendation');
 });
 
 require __DIR__.'/auth.php';

@@ -19,7 +19,7 @@
                 aqui podras ver una guia hecha a la medida del clima
             </h2>
             <div class=" pr-1">
-                <button  class="bg-white hover:bg-red  w-32 h-12 hover:bg-red-600 transition ease-in-out"><a href="{{ route('about') }}">Generar guia</a></button>
+                <button  class="bg-white hover:bg-red  w-32 h-12 hover:bg-red-600 transition ease-in-out"><a href="{{ route('recommendation') }}">Generar guia</a></button>
             </div>
 
 
