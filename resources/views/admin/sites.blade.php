@@ -1,6 +1,5 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
-<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
+
 <x-app-layout>
 
 <div x-data="{ showModal: false } " class="bg-Color2">
@@ -24,13 +23,7 @@
                         <input type="time" name="hora">
                         <input type="time" name="horasalida">
                         <div class="py-4">
-                            <select name="climas" id="climas" value="" multiple>
-                                <option value="Soleado">Soleado</option>
-                                <option value="Nublado">Nublado</option>
-                                <option value="LLuvia">LLuvia</option>
-                                <option value="Nevando">Nevando</option>
-                                <option value="Vino messi a visitar el real cartagena">Vino messi a visitar el real cartagena</option>
-                            </select>
+                            <x-weathers></x-weathers>
                         </div>
                         <input type="text" name="url_foto">
                         <input type="text" name="url_map">
@@ -48,18 +41,18 @@
     <div class="overflow-x-auto w-full flex justify-center">
         <table class="m-w-full  divide-y divide-gray-200 ">
             <thead class="bg-gray-50">
-            <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Imagen</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Nombre</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Direccion</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Hora apertura</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Hora cierre</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Climas</th>
-                <th scope="col" class="px-9 py-3 w-6text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Opciones</th>
-            </tr>
+                <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Imagen</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Nombre</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Direccion</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Hora apertura</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Hora cierre</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Climas</th>
+                    <th scope="col" class="px-9 py-3 w-6text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Opciones</th>
+                </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-            @foreach ($sites as $site)
+                @foreach ($sites as $site)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap"><img src="{{ $site->url_img }}" alt="" class="w-96 h-60"></td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $site->name_site }}</td>
@@ -74,8 +67,8 @@
                                     Editar
                                 </button>
                             </div>
-
-
+                            
+                            
                             <!-- Modal -->
                             <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
                                 <div class="flex items-center justify-center min-h-screen">
@@ -93,7 +86,7 @@
                                                 <div class="py-4">
                                                     <input type="text" placeholder="name" name="name" value="{{ $site->name_site }}">
                                                 </div>
-
+                                                
                                                 <label for="" class="text-yellow-500">Direccion</label>
                                                 <div class="py-4">
                                                     <input type="text" placeholder="address" name="address" value="{{ $site->address }}">
@@ -108,13 +101,17 @@
                                                 </div>
                                                 <label for="" class="text-yellow-500">Climas para recomendar</label>
                                                 <div class="py-4">
-                                                    <select name="climas1" id="climas1" multiple>
+                                                    {{-- <select multiple class="select2 "  name="climas">
                                                         <option value="Soleado">Soleado</option>
                                                         <option value="Nublado">Nublado</option>
                                                         <option value="LLuvia">LLuvia</option>
                                                         <option value="Nevando">Nevando</option>
                                                         <option value="Vino messi a visitar el real cartagena">Vino messi a visitar el real cartagena</option>
-                                                    </select>
+                                                    </select> --}}
+                                                    {{-- <x-weathers></x-weathers> --}}
+                                                    <x-weathersedit></x-weathersedit>
+                                                    {{-- <select name="climas1[]" id="climas1" value="{{ $site->weather_preferable }}" multiple>
+                                                    </select> --}}
                                                 </div>
                                                 {{-- <div class="py-4">
                                                     <input type="text" placeholder="climas" name="climas" value="{{ $site->weather_preferable }}">
@@ -134,7 +131,7 @@
                                             </form>
                                         </div>
 
-ww                                    </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -143,6 +140,7 @@ ww                                    </div>
                                 <button @click="showModal = true" class="bg-yellow-500 hover:bg-Color1 text-white font-bold py-2 px-4 rounded">
                                     Eliminar
                                 </button>
+                                
                             </div>
 
 
@@ -182,10 +180,7 @@ ww                                    </div>
 </div>
 
 </x-app-layout>
-<script>
-    new MultiSelectTag('climas')  // id
-    new MultiSelectTag('climas1')  // id
-</script>
+
 {{-- Esto es para eliminar sitios --}}
 {{-- @foreach ($sites as $item)
 <form action="{{ route('site.destroy',$item) }}" method="POST">

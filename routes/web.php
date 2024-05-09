@@ -24,9 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [SiteController::class, 'getWeather'] )->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/allsites', [SiteController::class, 'catalogue'])->name('site.catalogue');
 

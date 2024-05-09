@@ -7,8 +7,8 @@
     </style>
     <div class="prueba h-screen p-28">
 
-        <h1 class="text-white text-5xl sm:text-8xl md:text-9xl lg:text-10xl xl:text-11xl text-center font-semibold">Temperatura</h1>
-        <h2 class="text-black text-3xl text-center	 font-extrabold pt-7">28°C,soleado</h2>
+        <h1 class="text-white text-5xl sm:text-8xl md:text-9xl lg:text-10xl xl:text-11xl text-center font-semibold">Clima actual</h1>
+        <h2 class="text-black text-3xl text-center	 font-extrabold pt-7">{{ $temp . ", ". $weather }}</h2>
     </div>
 
 
