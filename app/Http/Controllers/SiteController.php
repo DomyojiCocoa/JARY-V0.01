@@ -127,7 +127,7 @@ class SiteController extends Controller
     public function getWeather() 
     {
         $apiKey = 'c75fdf7c5e7cd7eb463edaac441ed452';
-        $city = 'Cartagena,CO';
+        $city = 'Cartagena,CO';     
 
         $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric&lang=es";
 
