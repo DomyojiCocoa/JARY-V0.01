@@ -71,21 +71,32 @@
                             <!-- Modal -->
                             <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
                                 <div class="flex items-center justify-center min-h-screen">
-                                    <div class="relative bg-white w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
-                                        <div class="p-8">
+                                    <div class="relative bg-Color2 border-green-500 border-2 w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
+                                        <div class=" text-right pb-4">
+                                            <button @click="showModal = false" class="text-sm font-semibold text-white bg-red-700 font-bold py-2 px-4 rounded ">X</button>
+                                        </div>
+                                        <div class="p-1">
                                             <!-- Contenido del modal -->
-                                            <h2 class="text-xl font-semibold mb-4">Editar usuario</h2>
+                                            <h2 class="text-xl font-semibold mb-4 text-green-500 ">Editar usuario</h2>
                                             <form action="{{ route('user.update',$user->id) }}" method="post">
                                                 @csrf
                                                 @method('put')
-                                                <input type="text" placeholder="Usuario" name="name" value="{{ $user->name }}">
-                                                <input type="text" placeholder="Email" name="email" value="{{ $user->email }}">
-                                                <button type="submit">Actualizar</button>
+                                                <label for="" class="text-green-500">Nombre del usuario</label>
+                                                <div>
+                                                    <input type="text" placeholder="Usuario" name="name" value="{{ $user->name }}">
+
+                                                </div>
+                                                <label for="" class="text-green-500">Email</label>
+                                                <div>
+                                                    <input type="text" placeholder="Email" name="email" value="{{ $user->email }}">
+                                                </div>
+                                                <div class="flex justify-center items-center pt-7">
+                                                    <button type="submit" class="w-23 bg-white font-bold py-2 px-2 rounded hover:bg-green-500" >Actualizar</button>
+                                                </div>
+
                                             </form>
                                         </div>
-                                        <div class="p-4 bg-gray-100 text-right">
-                                            <button @click="showModal = false" class="text-sm font-semibold text-gray-700">Cerrar</button>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
