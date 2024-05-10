@@ -11,7 +11,7 @@
 
 
     <!-- Modal -->
-    <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto 	">
+    <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto 	bg-blur bg-red-100 bg-opacity-50">
         <div class="flex items-center justify-center min-h-screen 	">
             <div class="relative bg-Color2 border-red-500 border-2 w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
                 <div class="p-8">
@@ -92,7 +92,7 @@
 
 
                             <!-- Modal -->
-                            <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto ">
+                            <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto bg-blur bg-gray-100 bg-opacity-50">
                                 <div class="flex items-center justify-center min-h-screen">
                                     <div class="relative bg-Color2 border-yellow-500 border-2 w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
                                         <div class="p-8">
@@ -167,7 +167,7 @@
 
 
                             <!-- Modal -->
-                            <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
+                            <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto bg-blur bg-red-500 bg-opacity-50">
                                 <div class="flex items-center justify-center min-h-screen">
                                     <div class=" bg-Color2 w-96 border-red-700 border-4  rounded-lg shadow-lg">
                                         <div class="p-4">

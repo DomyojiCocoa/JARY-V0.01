@@ -18,7 +18,9 @@ class UserSeeder extends Seeder
             'name' => 'cocoa',
             'email' => 'cocoa@gmail.com',
             'password' => '1043637234'
-        ]);
-        User::factory()->count(30)->create();
+        ])->assignRole('Administrador');
+        User::factory(30)->create()->each(function ($user) {
+            $user->assignRole('Usuario');
+        });
     }
 }

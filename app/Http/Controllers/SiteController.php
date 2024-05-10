@@ -118,7 +118,7 @@ class SiteController extends Controller
         $temperature = $data['main']['temp'];
         $weatherDescription = $data['weather'][0]['description'];
 //$weatherDescription
-        $sites = Site::where('weather_preferable', 'LIKE', '%Soleado%')->get();
+        $sites = Site::where('weather_preferable', 'LIKE', '%messi%')->get();
 
         return view('recommendation',compact('sites'));
 

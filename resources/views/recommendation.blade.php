@@ -1,5 +1,5 @@
 <div>
-    <h1>JGASDHKJLASD</h1>
+
     @foreach ($sites as $site)
         <h1>{{ $site->name_site }}</h1>
     @endforeach
