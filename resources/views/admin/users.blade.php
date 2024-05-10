@@ -10,20 +10,33 @@
         <!-- Modal -->
         <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
             <div class="flex items-center justify-center min-h-screen">
-                <div class="relative bg-white w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
+                <div class="relative bg-Color2 border-green-500 border-2 w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
+                    <div class=" text-right pb-4">
+                        <button @click="showModal = false" class="text-sm font-semibold text-white bg-red-700 font-bold py-2 px-4 rounded ">X</button>
+                    </div>
                     <div class="p-8">
                         <!-- Contenido del modal -->
-                        <h2 class="text-xl font-semibold mb-4">Crear usuario</h2>
+                        <h2 class="text-xl font-semibold mb-4 text-green-500 text-center">Crear usuario</h2>
                         <form action="{{ route('user.create') }}" method="get">
-                            <input type="text" name="name" placeholder="Ingrese nombre">
-                            <input type="text" name="email" placeholder="Ingrese correo">
-                            <input type="password" name="password" placeholder="Ingrese contraseña">
-                            <button type="submit">Registrar </button>
+                            <label for="" class="text-green-500">Nombre</label>
+                            <div>
+                                <input type="text" name="name" placeholder="Ingrese nombre">
+                            </div>
+                            <label for="" class="text-green-500">Email</label>
+                            <div>
+                                <input type="text" name="email" placeholder="Ingrese correo">
+                            </div>
+                            <label for="" class="text-green-500">Contraseña</label>
+                            <div>
+                                <input type="password" name="password" placeholder="Ingrese contraseña">
+                            </div>
+                            <div class="flex justify-center items-center pt-7">
+                                <button type="submit" class="w-23 bg-white font-bold py-2 px-2 rounded hover:bg-green-500">Registrar </button>
+                            </div>
+
                         </form>
                     </div>
-                    <div class="p-4 bg-gray-100 text-right">
-                        <button @click="showModal = false" class="text-sm font-semibold text-gray-700">Cerrar</button>
-                    </div>
+
                 </div>
             </div>
         </div>

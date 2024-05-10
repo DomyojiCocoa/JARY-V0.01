@@ -13,25 +13,47 @@
     <!-- Modal -->
     <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto 	">
         <div class="flex items-center justify-center min-h-screen 	">
-            <div class="relative bg-white w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
+            <div class="relative bg-Color2 border-red-500 border-2 w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
                 <div class="p-8">
+                    <div class=" text-right pb-4">
+                        <button @click="showModal = false" class="text-sm font-semibold text-white bg-red-700 font-bold py-2 px-4 rounded ">X</button>
+                    </div>
                     <!-- Contenido del modal -->
-                    <h2 class="text-xl font-semibold mb-4">Agregar nuevo sitio</h2>
+                    <h2 class="text-xl font-semibold mb-4 text-red-500">Agregar nuevo sitio</h2>
                     <form action="{{ route('site.create') }}" method="get">
+                        <label for="" class="text-red-500">Nombre del sitio</label>
                         <input type="text" name="name">
+                        <label for="" class="text-red-500">Direccion</label>
                         <input type="text" name="address">
-                        <input type="time" name="hora">
-                        <input type="time" name="horasalida">
-                        <div class="py-4">
+                        <div>
+                            <label for="" class="text-red-500">hora de inicio</label>
+                            <div>
+                                <input type="time" name="hora">
+                            </div>
+
+                        </div>
+
+                        <label for="" class="text-red-500">Hora de cierre</label>
+                        <div>
+                            <input type="time" name="horasalida">
+                        </div>
+                        <label for="" class="text-red-500">Tipo de Clima</label>
+                        <div class="">
                             <x-weathers></x-weathers>
                         </div>
-                        <input type="text" name="url_foto">
-                        <input type="text" name="url_map">
-                        <button type="submit">Enviar</button>
+                        <label for=""class="text-red-500">URL de la foto</label>
+                        <div>
+                            <input type="text" name="url_foto">
+                        </div>
+                        <label for=""class="text-red-500">URL de dirrecion</label>
+                        <div>
+                            <input type="text" name="url_map">
+                        </div>
+                        <div class="flex justify-center items-center pt-7">
+                            <button type="submit" class="w-20 bg-white font-bold py-2 px-4 rounded hover:bg-red-500"class="w-64">Enviar</button>
+                        </div>
+
                     </form>
-                </div>
-                <div class="p-4 bg-gray-100 text-right">
-                    <button @click="showModal = false" class="text-sm font-semibold text-gray-700">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -67,8 +89,8 @@
                                     Editar
                                 </button>
                             </div>
-                            
-                            
+
+
                             <!-- Modal -->
                             <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto ">
                                 <div class="flex items-center justify-center min-h-screen">
@@ -86,7 +108,7 @@
                                                 <div class="py-4">
                                                     <input type="text" placeholder="name" name="name" value="{{ $site->name_site }}" class="w-64">
                                                 </div>
-                                                
+
                                                 <label for="" class="text-yellow-500">Direccion</label>
                                                 <div class="py-4">
                                                     <input type="text" placeholder="address" name="address" value="{{ $site->address }}"class="w-64">
@@ -140,7 +162,7 @@
                                 <button @click="showModal = true" class="bg-yellow-500 hover:bg-Color1 text-white font-bold py-2 px-4 rounded">
                                     Eliminar
                                 </button>
-                                
+
                             </div>
 
 
