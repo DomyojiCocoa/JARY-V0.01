@@ -112,19 +112,23 @@
                             <!-- Modal -->
                             <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
                                 <div class="flex items-center justify-center min-h-screen">
-                                    <div class="relative bg-white w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
-                                        <div class="p-8">
+                                    <div class="bg-Color2 w-96 border-red-700 border-4  rounded-lg shadow-lg">
+                                        <div class="p-3">
+                                            <div class=" text-right">
+                                                <button @click="showModal = false" class="text-sm font-semibold text-white bg-red-700 font-bold py-2 px-4 rounded">X</button>
+                                            </div>
                                             <!-- Contenido del modal -->
-                                            <h2 class="text-xl font-semibold mb-4">Esta seguro de eliminar este usuario?</h2>
+                                            <h2 class="text-xl font-semibold mb-4 text-red-500">Esta seguro de eliminar este usuario?</h2>
                                             <form action="{{ route('user.destroy',$user->id) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="submit" class="bg-red-500">ELIMINAR</button>
+                                                <div>
+                                                    <button type="submit" class="bg-red-700 hover:bg-Color1 text-white font-bold py-2 px-4 rounded ">ELIMINAR</button>
+                                                </div>
+
                                             </form>
                                         </div>
-                                        <div class="p-4 bg-gray-100 text-right">
-                                            <button @click="showModal = false" class="text-sm font-semibold text-gray-700">Cerrar</button>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
