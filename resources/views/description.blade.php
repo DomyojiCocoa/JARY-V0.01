@@ -1,39 +1,64 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <x-app-layout>
-    <div >
-        {{-- aqui esta para mostrar informacion de un sitio y los respectivos comentarios --}}
-        <div class="">
-            <h1 class="text-center pt-4 pb-4 text-5xl">{{ $site->name_site }}</h1>
-            <figure class=" flex items-center justify-center ">
-                <img src="{{$site -> url_img}}" alt="" class="w-full">
-            </figure>
-
+    <div class="">
+        <div class="flex flex-col sm:flex-row justify-evenly items-center">
+            <div class="">
+                <figure class="pl-7 pt-7">
+                    <img src="{{$site->url_img}}" alt="" class="w-96 h-96 sm:w-70 sm:h-auto border-black border-2">
+                </figure>
+            </div>
+            <div class="flex items-center justify-center pt-7">
+                <div class="lg:w-96 sm:w-auto h-64 sm:h-auto items-center bg-white border-red-500 border-2 hover:border-red-500 rounded-md">
+                    <h1 class="text-red-500 text-4xl font-medium text-center pt-3">{{ $site->name_site }}</h1>
+                    <div class="p-5">
+                        <p class="text-black text-1xl pb-3"> Dirección: {{$site->address}}</p>
+                        <p class="text-black text-1xl pb-3"> Horario de apertura: {{$site->schedule_open}}</p>
+                        <p class="text-black text-1xl pb-3"> Hora de cierre: {{$site->schedule_close}}</p>
+                        <div class="text-center">
+                            <button class="text-sm font-semibold text-white bg-red-700 font-bold py-2 px-4 rounded hover:bg-red-300">
+                                <a href="{{$site->url_map}}" target="_blank">Ver ubicación</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <form id="calificacion-form" action="{{ route('rev.create') }}" method="get">
-            <h2 class="text-center pt-4 text-5xl hover:text-red-500 ">Califica tu experiencia </h2>
-            @csrf
-            <div class="flex items-center justify-center pt-4">
-                <input type="text" placeholder="Escriba su comentario aquí" name="comment" class="border-neutral-600 active:border-blue-300 border-2 rounded ">
-                <input type="hidden" value="{{ $site->id }}" name="idsite">
-                <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
-                <input type="hidden" name="score" id="score" value="">
-                <select class="pl-4 rounded border-neutral-600  border-2">
-                    <option value="opcion1">1</option>
-                    <option value="opcion2">2</option>
-                    <option value="opcion3">3</option>
-                    <option value="opcion4">4</option>
-                    <option value="opcion5">5</option>
-                    <option value="opcion6">6</option>
-                </select>
-            </div>
-            <!-- Calificación de Estrellas -->
-            <!-- Fin de Calificación de Estrellas -->
-            <div class=" flex items-center justify-center pt-4">
-                <button type="button" id="postear-btn" class="bg-red-500 hover:bg-black text-white font-bold  w-32 h-12 rounded  ">Postear</button>
-            </div>
 
-        </form>
+        {{-- aqui esta para mostrar informacion de un sitio y los respectivos comentarios --}}
+
+        <form id="calificacion-form" action="{{ route('rev.create') }}" method="get" class="mt-4 sm:mt-0 w-full sm:w-auto">
+                <h2 class="p-9 text-3xl hover:text-red-500">Califica tu experiencia</h2>
+                @csrf
+                <div class="flex flex-col sm:flex-row">
+                    <!-- Input de comentario -->
+                    <div class="lg:pl-9">
+                        <textarea placeholder="Escriba su comentario aquí" name="comment" class="border-neutral-600  rounded w-96 h-60"></textarea>
+                        <input type="hidden" value="{{ $site->id }}" name="idsite">
+                        <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
+                        <div class="pl-9 pt-4 relative">
+                            <button type="submit" id="postear-btn" class="bg-red-500 hover:bg-black text-white font-bold w-32 h-12 rounded">Postear</button>
+                        </div>
+                    </div>
+                    <!-- Comentarios anteriores -->
+                    <div class="w-full sm:w-1/2 pl-0 sm:pl-4 mt-4 sm:mt-0 lg:relative left-32">
+                        <h1 class="text-center text-xl text-white font-bold text-5xl bg-black mb-4">Comentanos tu experiencia</h1>
+                        @foreach ($reviews as $review)
+                            <div class="p-4 border-b border-black">
+                                <div class="bg-gray-300 flex pl-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" class="text-black relative top-2.5"><path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"/></svg>
+                                    <h2 class="pt-2 pb-3">{{$review->username}}</h2>
+                                </div>
+                                <div>
+                                    <h3>Comentario:</h3>
+                                    <p>{{ $review->comment }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </form>
 
         {{--<script>
             const estrellas = document.querySelectorAll('.estrella');
@@ -192,12 +217,6 @@
                 </label>
             @endfor
         </div> --}}
-        @foreach ($reviews as $review )
-            <div class="">
-                {{-- <h3>{{ $user->name }}</h3> --}}
-                <p>{{ $review->comment }}</p>
-            </div>
-        @endforeach
 
     </div>
 </x-app-layout>

@@ -12,7 +12,6 @@ class Review extends Model
         'id_site',
         'id_user',
         'username',
-        'score',
         'comment',
     ];
 }
