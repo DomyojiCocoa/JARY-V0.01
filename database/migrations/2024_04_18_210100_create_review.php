@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_site');
             $table->unsignedBigInteger('id_user');
             $table->String('username');
-            $table->integer('score');
             $table->string('comment');
             $table->foreign('id_site')->references('id')->on('sites');
             $table->foreign('id_user')->references('id')->on('users');

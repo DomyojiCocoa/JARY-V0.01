@@ -51,7 +51,7 @@ class ReviewController extends Controller
     {
         $site = Site::find($id);
         $reviews = Review::where('id_site', $id)->get();
-        
+
         return view('description',compact('site','reviews'));
     }
 
@@ -76,6 +76,6 @@ class ReviewController extends Controller
      */
     public function destroy(string $id)
     {
-        
+
     }
 }
