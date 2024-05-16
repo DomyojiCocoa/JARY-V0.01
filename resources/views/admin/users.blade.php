@@ -2,36 +2,36 @@
 <x-app-layout>
     <div x-data="{ showModal: false }" class="bg-Color2">
         <div class="flex p-8">
-            <button @click="showModal = true" class="bg-[#fcb815] hover:bg-red-400 text-white font-bold  w-32 h-12 rounded">
+            <button @click="showModal = true" class="bg-[#fcb815] hover:bg-[#f89f0e] text-white font-bold  w-32 h-12 rounded">
                 Crear usuario
             </button>
         </div>
 
         <!-- Modal -->
-        <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
+        <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto ">
             <div class="flex items-center justify-center min-h-screen">
-                <div class="relative bg-Color2 border-green-500 border-2 w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
+                <div class="relative bg-Color2 border-[#fcb815] border-2 w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
                     <div class=" text-right pb-4">
-                        <button @click="showModal = false" class="text-sm font-semibold text-white bg-red-700 font-bold py-2 px-4 rounded ">X</button>
+                        <button @click="showModal = false" class="text-sm font-semibold text-white bg-[#ef4444] font-bold py-2 px-4 rounded ">X</button>
                     </div>
                     <div class="p-8">
                         <!-- Contenido del modal -->
-                        <h2 class="text-xl font-semibold mb-4 text-green-500 text-center">Crear usuario</h2>
+                        <h2 class="text-xl font-semibold mb-4 text-[#fcb815] text-center">Crear usuario</h2>
                         <form action="{{ route('user.create') }}" method="get">
-                            <label for="" class="text-green-500">Nombre</label>
+                            <label for="" class="text-[#fcb815]">Nombre</label>
                             <div>
                                 <input type="text" name="name" placeholder="Ingrese nombre">
                             </div>
-                            <label for="" class="text-green-500">Email</label>
+                            <label for="" class="text-[#fcb815]">Email</label>
                             <div>
                                 <input type="text" name="email" placeholder="Ingrese correo">
                             </div>
-                            <label for="" class="text-green-500">Contraseña</label>
+                            <label for="" class="text-[#fcb815]">Contraseña</label>
                             <div>
                                 <input type="password" name="password" placeholder="Ingrese contraseña">
                             </div>
                             <div class="flex justify-center items-center pt-7">
-                                <button type="submit" class="w-23 bg-white font-bold py-2 px-2 rounded hover:bg-green-500">Registrar </button>
+                                <button type="submit" class="w-23 bg-white font-bold py-2 px-2 rounded hover:bg-[#fcb815]">Registrar </button>
                             </div>
 
                         </form>
@@ -62,7 +62,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-center flex">
                         <div x-data="{ showModal: false }">
                             <div>
-                                <button @click="showModal = true" class="bg-[#fcb815] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                <button @click="showModal = true" class="bg-[#fcb815] hover:bg-[#f89f0e] text-white font-bold py-2 px-4 rounded">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
                                 </button>
                             </div>
@@ -71,7 +71,7 @@
                             <!-- Modal -->
                             <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto">
                                 <div class="flex items-center justify-center min-h-screen">
-                                    <div class="relative bg-white border-[#fcb815] border-2 w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
+                                    <div class="relative bg-[#0F172A] border-[#fcb815] border-2 w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-lg">
                                         <div class=" text-right pb-4">
                                             <button @click="showModal = false" class="text-sm font-semibold text-white bg-red-700 font-bold py-2 px-4 rounded ">X</button>
                                         </div>
@@ -81,12 +81,12 @@
                                             <form action="{{ route('user.update',$user->id) }}" method="post">
                                                 @csrf
                                                 @method('put')
-                                                <label for="" class="text-black">Nombre del usuario</label>
+                                                <label for="" class="text-[#fcb815] font-semibold">Nombre del usuario</label>
                                                 <div>
                                                     <input type="text" placeholder="Usuario" name="name" value="{{ $user->name }}">
 
                                                 </div>
-                                                <label for="" class="text-black">Email</label>
+                                                <label for="" class="text-[#fcb815] font-semibold">Email</label>
                                                 <div>
                                                     <input type="text" placeholder="Email" name="email" value="{{ $user->email }}">
                                                 </div>
