@@ -1,27 +1,27 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <x-app-layout>
-    <div class="">
+    <div class="bg-Color2">
         <div class="flex  justify-center justify-evenly items-center  ">
             <div class="">
                 <figure class=" ">
-                    <img src="{{$site->url_img}}" alt="" class="w-96 h-80  border-black border-2">
+                    <img src="{{$site->url_img}}" alt="" class="w-96 h-80  border-black border-2 rounded-lg">
                 </figure>
             </div>
             <div class="flex items-center justify-center pt-7">
-                <div class=" h-1/2 h-3/6  items-center bg-white border-red-500 border-2 hover:border-red-500 rounded-md">
-                    <h1 class="text-red-500 text-4xl font-medium text-center pt-3">{{ $site->name_site }}</h1>
+                <div class=" h-1/2 h-3/6  items-center bg-white border-[#fbbf24] border-2 rounded-md">
+                    <h1 class="text-[#fbbf24] text-4xl font-medium text-center pt-3">{{ $site->name_site }}</h1>
                     <div class="p-5">
                         <p class="text-black text-xl pb-3 font-medium"> Dirección: {{$site->address}}</p>
                         <p class="text-black text-xl pb-3 font-medium"> Horario de apertura: {{$site->schedule_open}}</p>
                         <p class="text-black text-xl pb-3 font-medium"> Hora de cierre: {{$site->schedule_close}}</p>
                         <div class="flex">
-                            <p class="text-black text-xl pb-3 font-medium">ubicacion: </p>
-                            <button class="text-sm font-semibold text-white bg-red-700 font-bold py-2 px-4 rounded hover:bg-red-300">
+                            <p class="text-black text-xl pb-3 font-medium">Ubicacion: </p>
+                            <button class="text-sm font-semibold text-white bg-[#fbbf24] font-bold py-2 px-4 rounded hover:bg-[#f59e0b]">
                                 <a href="{{$site->url_map}}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg></a>
                             </button>
                         </div>
                         <form id="calificacion-form" action="{{ route('rev.create') }}" method="get" class="mt-4 sm:mt-0 w-full sm:w-auto">
-                            <h2 class=" text-3xl hover:text-red-500">Califica tu experiencia</h2>
+                            <h2 class=" text-3xl hover:text-[#fbbf24]">Califica tu experiencia</h2>
                             @csrf
                             <div class="flex flex-col sm:flex-row">
                                 <!-- Input de comentario -->
@@ -30,7 +30,7 @@
                                     <input type="hidden" value="{{ $site->id }}" name="idsite">
                                     <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
                                     <div class="pl-9 pt-4 relative">
-                                        <button type="submit" id="postear-btn" class="bg-red-500 hover:bg-black text-white font-bold w-32 h-12 rounded">Postear</button>
+                                        <button type="submit" id="postear-btn" class="bg-[#fbbf24] hover:bg-[#f59e0b] text-white font-bold w-32 h-12 rounded">Postear</button>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
 
 
                     <!-- Comentarios anteriores -->
-                    <div class="w-full sm:w-1/2 pl-0 sm:pl-4 mt-4 sm:mt-0 pt-5">
+                    <div class="w-full sm:w-1/2 pl-0 sm:pl-4 mt-4 sm:mt-0 pt-5 ">
                         <h1 class="text-center text-xl text-white font-bold text-5xl bg-black mb-4">Comentanos tu experiencia</h1>
                         @foreach ($reviews as $review)
                             <div class="p-4 border-b border-black">
