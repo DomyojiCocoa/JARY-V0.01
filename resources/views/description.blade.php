@@ -16,52 +16,9 @@
             <input type="text" placeholder="Escriba su comentario aquí" name="comment">
             <input type="hidden" value="{{ $site->id }}" name="idsite">
             <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
-            <input type="hidden" name="score" id="score" value="">
-        
-            <!-- Calificación de Estrellas -->
-            <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-                <h1 class="text-2xl font-bold mb-4">Calificación de Estrellas</h1>
-                
-                <div class="flex items-center" id="calificacion-estrellas">
-                    @foreach(range(1, 5) as $valor)
-                        <button class="mr-2 text-yellow-500 focus:outline-none estrella" data-valor="{{ $valor }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10 1l2.932 6.764 6.968.636-5.305 5.187 1.254 7.315L10 16.427l-6.849 3.175 1.254-7.315L.1 8.4l6.968-.636L10 1z"/>
-                            </svg>
-                        </button>
-                    @endforeach
-                </div>
-            </div>
-            <!-- Fin de Calificación de Estrellas -->
-        
             <button type="button" id="postear-btn">Postear</button>
         </form>
-        
-        <script>
-            const estrellas = document.querySelectorAll('.estrella');
 
-            estrellas.forEach(function(estrella) {
-                estrella.addEventListener('click', function() {
-                    let valor = parseInt(this.getAttribute('data-valor'));
-
-                    estrellas.forEach(function(otraEstrella, indice) {
-                        if (indice < valor) {
-                            otraEstrella.classList.add('text-yellow-500');
-                        } else {
-                            otraEstrella.classList.remove('text-yellow-500');
-                        }
-                    });
-
-                    // Almacenar la calificación seleccionada en el campo oculto
-                    document.getElementById('score').value = valor;
-                });
-            });
-
-            document.getElementById('postear-btn').addEventListener('click', function() {
-                // Enviar el formulario manualmente cuando se haga clic en "Postear"
-                document.getElementById('calificacion-form').submit();
-            });
-        </script>
         
 
 

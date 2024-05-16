@@ -104,10 +104,11 @@ class SiteController extends Controller
 
     public function generateGuide() 
     {
-        $apiKey = 'c75fdf7c5e7cd7eb463edaac441ed452';
-        $city = 'Cartagena,CO';
+        // $apiKey = 'c75fdf7c5e7cd7eb463edaac441ed452';
+        // $city = 'Cartagena,CO';
 
-        $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric&lang=es";
+        // $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric&lang=es";
+        $apiUrl = "http:/localhost:8001/api/v1/weather";
 
         $client = new Client();
 
@@ -118,7 +119,7 @@ class SiteController extends Controller
         $temperature = $data['main']['temp'];
         $weatherDescription = $data['weather'][0]['description'];
 //$weatherDescription
-        $sites = Site::where('weather_preferable', 'LIKE', '%messi%')->get();
+        $sites = Site::where('weather_preferable', 'LIKE', '%Sol%')->get();
 
         return view('recommendation',compact('sites'));
 
@@ -126,10 +127,11 @@ class SiteController extends Controller
     
     public function getWeather() 
     {
-        $apiKey = 'c75fdf7c5e7cd7eb463edaac441ed452';
-        $city = 'Cartagena,CO';     
+        // $apiKey = 'c75fdf7c5e7cd7eb463edaac441ed452';
+        // $city = 'Cartagena,CO';
 
-        $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric&lang=es";
+        // $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric&lang=es";
+        $apiUrl = "http:/localhost:8001/api/v1/weather";
 
         $client = new Client();
 
