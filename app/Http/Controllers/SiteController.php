@@ -9,7 +9,7 @@ use App\Models\Review;
 use App\Models\User;
 use App\Http\Controllers\UserController;
 use GuzzleHttp\Client;
-
+use Illuminate\Support\Facades\Storage;
 class SiteController extends Controller
 {
     /**
@@ -27,13 +27,20 @@ class SiteController extends Controller
      */
     public function create(Request $request)
     {
+        $request->validate([
+            'file' => 'required|image'
+        ]);
+
+        $imagenes = $request->file('file')->store('public/imagenes-perfil');
+
+        $url = Storage::url($imagenes);
         $sitio = Site::create([
             'name_site' => $request->name,
             'address' => $request->address,
             'schedule_open' => $request->hora ,
             'schedule_close' => $request->horasalida,
             'weather_preferable' => str_replace(['[', ']', '"'], '', json_encode($request->climas)),
-            'url_img' => $request->url_foto,
+            'url_img' => $url,
             'url_map' => $request->url_map
         ]);
         return redirect()->route('site.index');

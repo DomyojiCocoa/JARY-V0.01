@@ -28,7 +28,6 @@ class ReviewController extends Controller
             'id_site' => $sitio->id,
             'id_user' => Auth::user()->id,
             'username' => Auth::user()->name,
-            'score' => $request->score,
             'comment' => $request->comment
         ]);
         $site = Site::find($request->idsite);

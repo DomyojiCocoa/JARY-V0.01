@@ -17,49 +17,19 @@
                 <input type="text" placeholder="Escriba su comentario aquí" name="comment" class="border-neutral-600 active:border-blue-300 border-2 rounded ">
                 <input type="hidden" value="{{ $site->id }}" name="idsite">
                 <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
-                <input type="hidden" name="score" id="score" value="">
-                <select class="pl-4 rounded border-neutral-600  border-2">
-                    <option value="opcion1">1</option>
-                    <option value="opcion2">2</option>
-                    <option value="opcion3">3</option>
-                    <option value="opcion4">4</option>
-                    <option value="opcion5">5</option>
-                    <option value="opcion6">6</option>
-                </select>
+                {{-- <select class="pl-4 rounded border-neutral-600  border-2" name="score">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select> --}}
             </div>
-            <!-- Calificación de Estrellas -->
-            <!-- Fin de Calificación de Estrellas -->
             <div class=" flex items-center justify-center pt-4">
-                <button type="button" id="postear-btn" class="bg-red-500 hover:bg-black text-white font-bold  w-32 h-12 rounded  ">Postear</button>
+                <button type="submit" id="postear-btn" class="bg-red-500 hover:bg-black text-white font-bold  w-32 h-12 rounded  ">Postear</button>
             </div>
-
         </form>
 
-        {{--<script>
-            const estrellas = document.querySelectorAll('.estrella');
-
-            estrellas.forEach(function(estrella) {
-                estrella.addEventListener('click', function() {
-                    let valor = parseInt(this.getAttribute('data-valor'));
-
-                    estrellas.forEach(function(otraEstrella, indice) {
-                        if (indice < valor) {
-                            otraEstrella.classList.add('text-yellow-500');
-                        } else {
-                            otraEstrella.classList.remove('text-yellow-500');
-                        }
-                    });
-
-                    // Almacenar la calificación seleccionada en el campo oculto
-                    document.getElementById('score').value = valor;
-                });
-            });
-
-            document.getElementById('postear-btn').addEventListener('click', function() {
-                // Enviar el formulario manualmente cuando se haga clic en "Postear"
-                document.getElementById('calificacion-form').submit();
-            });
-        </script> --}
 
 
 
