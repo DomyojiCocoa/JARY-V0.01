@@ -19,7 +19,7 @@
             </div>
         </div>
     </section>
-    <section class=" w-full h-36 bg-gradient-to-r from-[#0F172A] to-[#0C8F89] pl-12">
+    <section class=" w-full h-36 bg-gradient-to-r from-[#0F172A] to-yellow-500 pl-12">
         <h1 class="text-[#fbbf24] font-semibold font-sans sm:text-4xl lg:text-3xl pt-5">Lugares de cartagena</h1>
         <div class="flex justify-between pr-9 pt-2">
             <h2 class="text-white font-semibold font-sans sm:text-base  lg:text-lg">
