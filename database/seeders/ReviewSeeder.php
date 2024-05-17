@@ -10,9 +10,5 @@ class ReviewSeeder extends Seeder
 {
     public function run(): void
     {
-        Review::create([
-            'score' => '4',
-            'comment' => 'Hola',
-        ]);
     }
 }

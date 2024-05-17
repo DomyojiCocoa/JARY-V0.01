@@ -16,8 +16,9 @@ export default {
             },
             colors: {
                 Color1: '#FB5B33',
-                Color2:'#111B1E',
-                Color3:'#465246'
+                Color2:'#0f172a',
+                Color3:'#465246',
+                bgCards: "#eae6d7",
             },
         },
     },
