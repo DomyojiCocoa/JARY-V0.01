@@ -66,9 +66,12 @@
                     <h2 class="text-white font-semibold font-sans sm:text-base  lg:text-lg">
                         Mira los sitios turísticos que tiene esta ciudad, sé que te va a gustar
                     </h2>
-                    <div class="pr-1">
-                        <button class="bg-white hover:bg-red rounded-lg w-32 h-12 hover:bg-[#FE5937] hover:text-white font-bold transition ease-in-out"><a href="{{ route('site.catalogue') }}">Ver sitios</a></button>
-                    </div>
+                    @if ('ViewSites')
+                        <div class="pr-1">
+                            <button class="bg-white hover:bg-red rounded-lg w-32 h-12 hover:bg-[#FE5937] hover:text-white font-bold transition ease-in-out"><a href="{{ route('site.catalogue') }}">Ver sitios</a></button>
+                        </div>
+
+                    @endif
                 </div>
             </section>
         </main>
