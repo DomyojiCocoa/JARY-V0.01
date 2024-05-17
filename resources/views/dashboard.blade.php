@@ -6,7 +6,7 @@
     </style>
     <div class="prueba h-screen p-28">
         <h1 class="text-[#FFFCD0] text-5xl sm:text-8xl md:text-9xl lg:text-10xl xl:text-11xl text-center font-semibold">Clima actual</h1>
-        <h2 class="text-[#FFFCD0] text-3xl text-center	 font-extrabold pt-7" id="ola">{{ $temp . ", ". $weather }}</h2>
+        <h2 class="text-[#FFFCD0] text-3xl text-center	 font-extrabold pt-7" id="ola">{{ $temp . "°, ". $weather }}</h2>
     </div>
     <section class="bg-[#0F172A] w-full h-36 pl-12 items-center">
         <h1 class="text-[#fbbf24] font-semibold font-sans sm:text-4xl lg:text-3xl pt-5">Crear una guia </h1>
@@ -28,7 +28,6 @@
             <div class="pr-1">
                 <button class="bg-white hover:bg-red rounded-lg w-32 h-12 hover:bg-[#FE5937] hover:text-white font-bold transition ease-in-out"><a href="{{ route('site.catalogue') }}">Ver sitios</a></button>
             </div>
-
         </div>
     </section>
 </x-app-layout>

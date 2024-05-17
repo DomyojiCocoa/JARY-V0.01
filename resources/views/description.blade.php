@@ -1,29 +1,22 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <x-app-layout>
     <div class="bg-Color2">
-        <div class="flex  justify-center  items-center  ">
-            <div class="flex items-center justify-start">
-                <div class=" h-1/2 h-3/6  items-center  border-[#f1f5f9] border-2 rounded-md bg-[#1e293b]">
-                    <h1 class="text-[#f1f5f9] text-4xl font-medium text-center pt-3">{{ $site->name_site }}</h1>
-                    <figure class=" ">
-                        <img src="{{$site->url_img}}" alt="" class="w-96 h-80  rounded-lg">
-                    </figure>
-                    <div class="p-5">
-
-
-                        <p class="text-[#f1f5f9] text-xl  font-medium">
-                            <button class="text-sm font-semibold text-white   font-bold    ">
-                            <a href="{{$site->url_map}}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg></a>
-                        </button>{{$site->address}}
-                        </p>
-                        <p class="text-[#f1f5f9] text-xl pb-3 font-medium"> Horario de apertura: {{$site->schedule_open}}</p>
-                        <p class="text-[#f1f5f9] text-xl pb-3 font-medium"> Hora de cierre: {{$site->schedule_close}}</p>
-                        <div class="flex">
-
-                        </div>
-                    </div>
-
-                </div>
+        <div class="h-16">                    
+            <h1 class="text-[#f1f5f9] text-4xl font-medium text-center pt-3">{{ $site->name_site }}</h1>
+        </div>
+        <div class="flex gap-20 content-center items-center">
+        <div class="border-gray-50 border-8 w-2/6">
+            <img src="{{$site->url_img}}" alt="" class="w-96 h-80  rounded-lg">
+            <div>
+            <p class="text-[#f1f5f9] text-xl  font-medium">
+                <button class="text-sm font-semibold text-white font-bold">
+                <a href="{{$site->url_map}}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg></a>
+            </button>{{$site->address}}
+            </p>
+            <p class="text-[#f1f5f9] text-xl pb-3 font-medium"> Horario de apertura: {{$site->schedule_open}}</p>
+            <p class="text-[#f1f5f9] text-xl pb-3 font-medium"> Hora de cierre: {{$site->schedule_close}}</p>
+            </div>
+        </div>
                 <div>
                     <form id="calificacion-form" action="{{ route('rev.create') }}" method="get" class="mt-4 sm:mt-0 w-full sm:w-auto">
                         <h2 class="text-3xl hover:text-[#fbbf24]">Califica tu experiencia</h2>
@@ -31,7 +24,7 @@
                         <div class="flex flex-col sm:flex-row">
                             <!-- Input de comentario -->
                             <div>
-                                <textarea placeholder="Escriba su comentario aquí" name="comment" class="border-neutral-600 rounded w-96 h-60"></textarea>
+                                <textarea id="commentarea" size="4" placeholder="Escriba su comentario aquí" name="comment" class="resize-none border-neutral-600 rounded w-96 h-60"></textarea>
                                 <input type="hidden" value="{{ $site->id }}" name="idsite">
                                 <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
                                 <div class="pl-9 pt-4 relative">
@@ -40,10 +33,10 @@
                             </div>
                         </div>
                     </form>
-
+    
                     {{-- Comentarios --}}
-                    <div class="w-full sm:w-1/2  sm:pl-4 mt-4 sm:mt-0 bg-white">
-                        <h1 class="text-center text-xl text-white font-bold text-5xl bg-black mb-4 w-full">Comentanos tu experiencia</h1>
+                    <div class="w-full overflow-scroll h-64  sm:pl-4 mt-4 sm:mt-0 bg-white">
+                        {{-- <h1 class="text-center text-xl text-white font-bold text-5xl bg-black mb-4 w-full">Comentanos tu experiencia</h1> --}}
                         @foreach ($reviews as $review)
                             <div class="p-4 border-b border-black">
                                 <div class="bg-gray-300 flex pl-5">
@@ -60,11 +53,18 @@
                         @endforeach
                     </div>
                 </div>
-
-
-            </div>
         </div>
+    
     </div>
+</x-app-layout>
+<script>
+    var textarea = document.getElementById("commentarea");
+    textarea.addEventListener("input", function() {
+      if (textarea.value.length > 247) {
+        textarea.value = textarea.value.slice(0, 247);
+      }
+    });
+</script>
 
 
 
@@ -200,7 +200,3 @@
                 </label>
             @endfor
         </div> --}}
-
-    </div>
-</x-app-layout>
-

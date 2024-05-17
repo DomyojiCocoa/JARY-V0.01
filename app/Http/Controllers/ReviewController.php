@@ -23,6 +23,8 @@ class ReviewController extends Controller
      */
     public function create(Request $request)
     {
+
+
         $sitio = Site::find($request->idsite);
         Review::create([
             'id_site' => $sitio->id,
@@ -32,9 +34,10 @@ class ReviewController extends Controller
         ]);
         $site = Site::find($request->idsite);
         $reviews = Review::where('id_site', $request->idsite)->get();
-        return view('description',compact('site','reviews'));
-        // return redirect()->route('rev.show',compact('site','reviews'));
+        return view('description');
     }
+    // return view('description',compact('site','reviews'));
+    // return redirect()->route('rev.show',compact('site','reviews'));
 
     /**
      * Store a newly created resource in storage.
