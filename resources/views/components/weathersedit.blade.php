@@ -3,13 +3,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<select multiple class="select2 w-64"  name="climas[]">
-    <option value="Soleado">Soleado</option>
-    <option value="Nublado">Nublado</option>
-    <option value="LLuvia">LLuvia</option>
-    <option value="Nevando">Nevando</option>
-    <option value="Vino messi a visitar el real cartagena">Vino messi a visitar el real cartagena</option>
+<select multiple class="select2 w-64"  name="climas[]" >
+    <option value="clear sky">Clear sky</option>
+    <option value="few clouds">Few clouds</option>
+    <option value="scattered clouds">Scattered clouds</option>
+    <option value="broken clouds">Broken clouds</option>
+    <option value="shower rain">Shower rain</option>
+    <option value="rain">Rain</option>
+    <option value="thunderstorm">Thunderstorm</option>
 </select>
+
 
 <script>
     $(document).ready(function() {

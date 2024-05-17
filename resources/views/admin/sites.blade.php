@@ -37,9 +37,9 @@
                             <div>
                                 <x-weathers></x-weathers>
                             </div>
-                            <label for="url_foto" class="text-[#fcb815]">URL de la foto</label>
+                            <label for="url_img" class="text-[#fcb815]">URL de la foto</label>
                             <div>
-                                <input type="text" name="url_foto" class="w-full mb-2">
+                                <input type="text" name="url_img" class="w-full mb-2">
                             </div>
                             <label for="url_map" class="text-[#fcb815]">URL de dirección</label>
                             <div>
@@ -72,7 +72,7 @@
                 <tbody class="bg-white divide-y divide-gray-200 text-center">
                     @foreach ($sites as $site)
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap"><img src="{{ $site->url_img }}" alt="" class=" "></td>
+                        <td class="px-6 py-4 whitespace-nowrap"><img src="{{ $site->url_img }}" alt="" class=" rounded "></td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $site->name_site }}</td>
                         <td class="px-6 py-4">{{ $site->address }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $site->schedule_open }}</td>

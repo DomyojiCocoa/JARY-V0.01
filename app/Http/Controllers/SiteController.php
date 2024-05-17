@@ -27,22 +27,16 @@ class SiteController extends Controller
      */
     public function create(Request $request)
     {
-        $request->validate([
-            'file' => 'required|image'
-        ]);
-
-        $imagenes = $request->file('file')->store('public/imagenes-perfil');
-
-        $url = Storage::url($imagenes);
         $sitio = Site::create([
             'name_site' => $request->name,
             'address' => $request->address,
             'schedule_open' => $request->hora ,
             'schedule_close' => $request->horasalida,
             'weather_preferable' => str_replace(['[', ']', '"'], '', json_encode($request->climas)),
-            'url_img' => $url,
+            'url_img' => $request->url_img,
             'url_map' => $request->url_map
         ]);
+        $sitio->save();
         return redirect()->route('site.index');
     }
 
@@ -126,10 +120,9 @@ class SiteController extends Controller
         $temperature = $data['main']['temp'];
         $weatherDescription = $data['weather'][0]['description'];
 //$weatherDescription
-        $sites = Site::where('weather_preferable', 'LIKE', '%messi%')->get();
+        $sites = Site::where('weather_preferable', 'LIKE', '%storm%')->get();
 
         return view('recommendation',compact('sites'));
-
     }
 
     public function getWeather()

@@ -19,5 +19,6 @@ class RoleSeeder extends Seeder
         
         Permission::create(['name' => 'CRUDsites'])->syncRoles($rol1);
         Permission::create(['name' => 'CRUDusers'])->syncRoles($rol1);
+        Permission::create(['name' => 'ViewSites'])->syncRoles($rol1,$rol2);
     }
 }

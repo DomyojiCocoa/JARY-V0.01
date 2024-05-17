@@ -60,6 +60,7 @@
                     </div>
                 </div>
             </section>
+            @can ('ViewSites')
             <section class="w-full h-36 bg-gradient-to-r from-[#0F172A] to-yellow-500 pl-12">
                 <h1 class="text-[#fbbf24] font-semibold font-sans sm:text-4xl lg:text-3xl pt-5">Lugares de Cartagena</h1>
                 <div class="flex justify-between pr-9 pt-2">
@@ -71,6 +72,7 @@
                     </div>
                 </div>
             </section>
+            @endcan
         </main>
     </body>
 </html>

@@ -11,8 +11,6 @@
     <option value="shower rain">Shower rain</option>
     <option value="rain">Rain</option>
     <option value="thunderstorm">Thunderstorm</option>
-    <option value="prueba">prueba</option>
-    <option value="prueba">prueba</option>
 </select>
 
 <script>
