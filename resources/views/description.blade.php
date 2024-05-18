@@ -1,70 +1,73 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <x-app-layout>
-    <div class="bg-Color2">
-        <div class="h-16">                    
-            <h1 class="text-[#f1f5f9] text-4xl font-medium text-center pt-3">{{ $site->name_site }}</h1>
-        </div>
-        <div class="flex gap-20 content-center items-center">
-        <div class="border-gray-50 border-8 w-2/6">
-            <img src="{{$site->url_img}}" alt="" class="w-96 h-80  rounded-lg">
-            <div>
-            <p class="text-[#f1f5f9] text-xl  font-medium">
-                <button class="text-sm font-semibold text-white font-bold">
-                <a href="{{$site->url_map}}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg></a>
-            </button>{{$site->address}}
-            </p>
-            <p class="text-[#f1f5f9] text-xl pb-3 font-medium"> Horario de apertura: {{$site->schedule_open}}</p>
-            <p class="text-[#f1f5f9] text-xl pb-3 font-medium"> Hora de cierre: {{$site->schedule_close}}</p>
+    <div class="bg-Color2 min-h-screen flex flex-col items-center py-4">
+
+        <div class="flex flex-col lg:flex-row gap-20 content-center justify-center items-center w-full lg:w-10/12">
+            <div class="border-gray-50 border-4 lg:w-2/6 w-full rounded-lg pb-3 bg-gray-800">
+                <h1 class="text-[#f1f5f9] text-4xl font-medium text-center pt-3 pb-4">{{ $site->name_site}}</h1>
+                <img src="{{$site->url_img}}" alt="" class="w-full h-80 object-cover rounded-lg">
+                <div class="pt-3 pb-3 px-6">
+                    <p class="text-[#f1f5f9] text-xl font-medium flex items-center">
+                        <button class="text-sm font-semibold text-white font-bold mr-2">
+                            <a href="{{$site->url_map}}" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                                    <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/>
+                                </svg>
+                            </a>
+                        </button>
+                        {{$site->address}}
+                    </p>
+                    <p class="text-[#f1f5f9] text-xl pb-3 font-medium">Horario de apertura: {{$site->schedule_open}}</p>
+                    <p class="text-[#f1f5f9] text-xl pb-3 font-medium">Hora de cierre: {{$site->schedule_close}}</p>
+                </div>
             </div>
-        </div>
-                <div>
-                    <form id="calificacion-form" action="{{ route('rev.create') }}" method="get" class="mt-4 sm:mt-0 w-full sm:w-auto">
-                        <h2 class="text-3xl hover:text-[#fbbf24]">Califica tu experiencia</h2>
-                        @csrf
-                        <div class="flex flex-col sm:flex-row">
-                            <!-- Input de comentario -->
-                            <div>
-                                <textarea id="commentarea" size="4" placeholder="Escriba su comentario aquí" name="comment" class="resize-none border-neutral-600 rounded w-96 h-60"></textarea>
-                                <input type="hidden" value="{{ $site->id }}" name="idsite">
-                                <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
-                                <div class="pl-9 pt-4 relative">
-                                    <button type="submit" id="postear-btn" class="bg-[#fbbf24] hover:bg-[#f59e0b] text-white font-bold w-32 h-12 rounded">Postear</button>
-                                </div>
+            <div class="w-full lg:w-3/6">
+                <form id="calificacion-form" action="{{ route('rev.create') }}" method="get" class="mt-4 sm:mt-0 w-full">
+                    <h2 class="text-2xl text-center text-[#fbbf24] pt-5 hover:text-[#fbbf24]">Califica tu experiencia</h2>
+                    @csrf
+                    <div class="flex flex-col sm:flex-row">
+                        <!-- Input de comentario -->
+                        <div class="pt-5 w-full">
+                            <textarea id="commentarea" maxlength="247" placeholder="Escriba su comentario aquí" name="comment" class="resize-none border-neutral-600 rounded w-full h-52 p-2"></textarea>
+                            <input type="hidden" value="{{ $site->id }}" name="idsite">
+                            <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
+                            <div class="pt-4 text-center">
+                                <button type="submit" id="postear-btn" class="bg-[#fbbf24] hover:bg-[#f59e0b] text-white font-bold w-32 h-12 rounded">Postear</button>
                             </div>
                         </div>
-                    </form>
-    
-                    {{-- Comentarios --}}
-                    <div class="w-full overflow-scroll h-64  sm:pl-4 mt-4 sm:mt-0 bg-white">
-                        {{-- <h1 class="text-center text-xl text-white font-bold text-5xl bg-black mb-4 w-full">Comentanos tu experiencia</h1> --}}
-                        @foreach ($reviews as $review)
-                            <div class="p-4 border-b border-black">
-                                <div class="bg-gray-300 flex pl-5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" class="text-black relative top-2.5">
-                                        <path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"/>
-                                    </svg>
-                                    <h2 class="pt-2 pb-3">{{$review->username}}</h2>
-                                </div>
-                                <div class="bg-white">
-                                    <h3>Comentario:</h3>
-                                    <p>{{ $review->comment }}</p>
-                                </div>
-                            </div>
-                        @endforeach
                     </div>
+                </form>
+
+                {{-- Comentarios --}}
+                <div class="w-full overflow-scroll h-64 mt-4 bg-white rounded-lg">
+                    @foreach ($reviews as $review)
+                        <div class="p-4 border-b border-black">
+                            <div class="bg-gray-300 flex pl-5 items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" class="text-black mr-2">
+                                    <path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"/>
+                                </svg>
+                                <h2 class="pt-2 pb-3">{{$review->username}}</h2>
+                            </div>
+                            <div class="bg-white w-full">
+                                <h3 class="font-semibold">Comentario:</h3>
+                                <p class="whitespace-pre-line">{{ $review->comment }}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
+            </div>
         </div>
-    
+
     </div>
 </x-app-layout>
 <script>
-    var textarea = document.getElementById("commentarea");
-    textarea.addEventListener("input", function() {
-      if (textarea.value.length > 247) {
-        textarea.value = textarea.value.slice(0, 247);
-      }
+    document.getElementById("commentarea").addEventListener("input", function() {
+        if (this.value.length > 247) {
+            this.value = this.value.slice(0, 247);
+        }
     });
 </script>
+
 
 
 
