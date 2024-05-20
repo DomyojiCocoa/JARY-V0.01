@@ -34,10 +34,10 @@ class ReviewController extends Controller
         ]);
         $site = Site::find($request->idsite);
         $reviews = Review::where('id_site', $request->idsite)->get();
-        return view('description');
+        // return view('description');
+        return view('description',compact('site','reviews'));
+        // return redirect()->route('rev.show',compact('site','reviews'));
     }
-    // return view('description',compact('site','reviews'));
-    // return redirect()->route('rev.show',compact('site','reviews'));
 
     /**
      * Store a newly created resource in storage.

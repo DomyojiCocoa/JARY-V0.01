@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>
             body {
-                background-image: url("../img/ct.jpg");
+                background-image: url("../img/ct.png");
                
             }
         </style>
