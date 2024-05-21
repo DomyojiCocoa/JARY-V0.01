@@ -60,20 +60,20 @@
                     </div>
                 </div>
             </section>
+            @can ('ViewSites')
             <section class="w-full h-36 bg-gradient-to-r from-[#0F172A] to-yellow-500 pl-12">
                 <h1 class="text-[#fbbf24] font-semibold font-sans sm:text-4xl lg:text-3xl pt-5">Lugares de Cartagena</h1>
                 <div class="flex justify-between pr-9 pt-2">
                     <h2 class="text-white font-semibold font-sans sm:text-base  lg:text-lg">
                         Mira los sitios turísticos que tiene esta ciudad, sé que te va a gustar
                     </h2>
-                    @if ('ViewSites')
                         <div class="pr-1">
                             <button class="bg-white hover:bg-red rounded-lg w-32 h-12 hover:bg-[#FE5937] hover:text-white font-bold transition ease-in-out"><a href="{{ route('site.catalogue') }}">Ver sitios</a></button>
                         </div>
 
-                    @endif
-                </div>
-            </section>
+                    </div>
+                </section>
+            @endcan
         </main>
     </body>
 </html>

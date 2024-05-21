@@ -37,9 +37,9 @@
                             <div>
                                 <x-weathers></x-weathers>
                             </div>
-                            <label for="url_foto" class="text-[#fcb815]">URL de la foto</label>
+                            <label for="url_img" class="text-[#fcb815]">URL de la foto</label>
                             <div>
-                                <input type="text" name="url_foto" class="w-full mb-2">
+                                <input type="text" name="url_img" class="w-full mb-2">
                             </div>
                             <label for="url_map" class="text-[#fcb815]">URL de dirección</label>
                             <div>

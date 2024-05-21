@@ -23,20 +23,7 @@ class ReviewController extends Controller
      */
     public function create(Request $request)
     {
-
-
-        $sitio = Site::find($request->idsite);
-        Review::create([
-            'id_site' => $sitio->id,
-            'id_user' => Auth::user()->id,
-            'username' => Auth::user()->name,
-            'comment' => $request->comment
-        ]);
-        $site = Site::find($request->idsite);
-        $reviews = Review::where('id_site', $request->idsite)->get();
-        // return view('description');
-        return view('description',compact('site','reviews'));
-        // return redirect()->route('rev.show',compact('site','reviews'));
+        
     }
 
     /**
@@ -44,7 +31,17 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sitio = Site::find($request->idsite);
+        Review::create([
+            'id_site' => $sitio->id,
+            'id_user' => Auth::user()->id,
+            'username' => Auth::user()->name,
+            'score' => $request->score,
+            'comment' => $request->comment
+        ]);
+        $site = Site::find($request->idsite);
+        $reviews = Review::where('id_site', $request->idsite)->get();
+        return view('description',compact('site','reviews'));
     }
 
     /**
