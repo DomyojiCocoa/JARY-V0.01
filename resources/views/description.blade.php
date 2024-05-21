@@ -1,7 +1,7 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <x-app-layout>
     
-    <div class="bg-Color2 min-h-screen flex flex-col items-center py-4">
+    <div class="bg-Color2 min-h-screen flex flex-col items-center py-4 ">
         
         <a href="/allsites"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg></a>
         <div class="flex flex-col lg:flex-row gap-20 content-center justify-center items-center w-full lg:w-10/12">
@@ -55,15 +55,15 @@
                 </form>
 
                 {{-- Comentarios --}}
-                <div class="w-full overflow-scroll h-64 mt-4 bg-[#374151] rounded-lg">
-                    <h2 class="text-lg font-bold mb-4 text-white">Comentarios</h2>
+                <h2 class="text-lg font-bold mb-4 text-white">Comentarios</h2>
+                <div class="w-full  overflow-scroll  h-64 mt-4 bg-[#374151] rounded-lg ">
                     @foreach ($reviews as $review)
-                        <div class="p-4 border-b border-black">
-                            <div class="bg-[#374151] p-6">
-                                <div class="flex flex-col space-y-4">
-                                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="p-4 border-b border-black  ">
+                            <div class="bg-[#374151] p-6 ">
+                                <div class="flex flex-col space-y-4 ">
+                                    <div class="bg-white p-4 rounded-lg shadow-md ">
                                         <h3 class="text-lg font-bold">{{ $review->username }}</h3>                                        
-                                        <p class="text-gray-700">{{ $review->comment }}</p>
+                                        <p class="text-gray-700 TEXT-FIT">{{ $review->comment }}</p>
                                     </div>                                                                  
                                 </div>
                             </div>
