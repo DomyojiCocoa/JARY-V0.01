@@ -1,20 +1,27 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-<div>
+<div class="bg-[#0F172A]">
     <x-app-layout>
-        @foreach ($sites as $site)
-            <h1>{{ $site->name_site }}</h1>
-        @endforeach
-                
-        {{-- <div id="default-carousel" class="relative w-full" data-carousel="slide">
+        <h1 class="text-center text-3xl pb-5">Recomendaciones</h1>
+        <h2  class="text-center text-2xl pb-2"> Esperamos que te guste :) </h2>
+
+        <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
-            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+
+            <div class="relative h-92 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
                 @foreach ($sites as $site)
+                <form action="{{ route('rev.show',$site->id) }}" method="get">
                     <div class=" hidden duration-700 ease-in-out" data-carousel-item>
-                        <h1>KJAGDHKGAHKGDKHAGSKLHGASHKDKHS</h1>
-                        <img src="{{ $site->url_img }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+
+                        <button type="submit">
+                            @foreach ($sites as $site)
+                                <h1>{{ $site->name_site }}</h1>
+                            @endforeach
+                            <img src="{{ $site->url_img }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        </button>
                     </div>
+                </form>
                 @endforeach
             </div>
             <!-- Slider indicators -->
@@ -36,7 +43,7 @@
                     <span class="sr-only">Next</span>
                 </span>
             </button>
-        </div> --}}
+        </div>
     </x-app-layout>
 </div>
 <!-- Because you are alive, everything is possible. - Thich Nhat Hanh -->

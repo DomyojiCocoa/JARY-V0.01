@@ -20,6 +20,9 @@ export default {
                 Color3:'#465246',
                 bgCards: "#eae6d7",
             },
+            backgroundImage: {
+                'custom-image': "url('/public/img/zzz.gif')",
+            }
         },
     },
 
