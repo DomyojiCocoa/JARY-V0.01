@@ -16,7 +16,12 @@ return new class extends Migration
             $table->string('name_site');
             $table->string('address');
             $table->string('weather_preferable');
+<<<<<<< HEAD
             $table->string('schedule');
+=======
+            $table->string('schedule_open');
+            $table->string('schedule_close');
+>>>>>>> yeison
             $table->string('url_img');
             $table->string('url_map');
             $table->timestamps();

@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+<<<<<<< HEAD
         Schema::create('review', function (Blueprint $table) {
+=======
+        Schema::create('reviews', function (Blueprint $table) {
+>>>>>>> yeison
             $table->id();
             $table->unsignedBigInteger('id_site');
             $table->unsignedBigInteger('id_user');
@@ -28,6 +32,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+<<<<<<< HEAD
         Schema::dropIfExists('review');
+=======
+        Schema::dropIfExists('reviews');
+>>>>>>> yeison
     }
 };

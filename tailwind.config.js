@@ -14,6 +14,13 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+<<<<<<< HEAD
+=======
+            colors: {
+                Color1: '#FB5B33',
+                Color2:'#111B1E'
+            },
+>>>>>>> yeison
         },
     },
 
