@@ -24,11 +24,18 @@
                             </div>
                             <label for="" class="text-[#fcb815]">Email</label>
                             <div>
-                                <input type="text" name="email" placeholder="Ingrese correo">
+                                <input type="email" name="email" placeholder="Ingrese correo">
                             </div>
                             <label for="" class="text-[#fcb815]">Contraseña</label>
                             <div>
                                 <input type="password" name="password" placeholder="Ingrese contraseña">
+                            </div>
+                            <label for="" class="text-[#fcb815]">Rol</label>
+                            <div>
+                                <select name="rol" id="">
+                                    <option value="Administrador">Administrador</option>
+                                    <option value="Usuario" selected>Usuario</option>
+                                </select>
                             </div>
                             <div class="flex justify-center items-center pt-7">
                                 <button type="submit" class="w-23 bg-white font-bold py-2 px-2 rounded hover:bg-[#fcb815]">Registrar </button>

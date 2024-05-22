@@ -4,13 +4,12 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <select multiple class="select2 w-64"  name="climas[]" >
-    <option value="clear sky">Clear sky</option>
-    <option value="few clouds">Few clouds</option>
-    <option value="scattered clouds">Scattered clouds</option>
-    <option value="broken clouds">Broken clouds</option>
-    <option value="shower rain">Shower rain</option>
-    <option value="rain">Rain</option>
-    <option value="thunderstorm">Thunderstorm</option>
+    <option value="	clear sky">	Cielo Despejado</option>
+    <option value="few clouds">Algo de nubes</option>
+    <option value="scattered clouds">scattered clouds</option>
+    <option value="broken clouds">broken clouds</option>
+    <option value="shower rain">Cerenando</option>
+    <option value="rain">LLuvia</option>
 </select>
 
 
@@ -19,15 +18,3 @@
         $('.select2').select2();
     });
 </script>
-{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
-<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
-<select name="climas1[]" id="climas" value="" multiple>
-    <option value="Soleado">Soleado</option>
-    <option value="Nublado">Nublado</option>
-    <option value="LLuvia">LLuvia</option>
-    <option value="Nevando">Nevando</option>
-    <option value="Vino messi a visitar el real cartagena">Vino messi a visitar el real cartagena</option>
-</select>
-<script>
-    new MultiSelectTag('climas1');
-</script> --}}

@@ -27,6 +27,7 @@ class SiteController extends Controller
      */
     public function create(Request $request)
     {
+
         $sitio = Site::create([
             'name_site' => $request->name,
             'address' => $request->address,
@@ -105,12 +106,11 @@ class SiteController extends Controller
 
     public function generateGuide()
     {
-        // $apiKey = 'c75fdf7c5e7cd7eb463edaac441ed452';
-        // $city = 'Cartagena,CO';
+        $apiKey = 'c75fdf7c5e7cd7eb463edaac441ed452';
+        $city = 'Cartagena,CO';
 
-        // $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric&lang=es";
-        $apiUrl = "http:/localhost:8001/api/v1/weather";
-
+        $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric";
+        // $apiUrl = "localhost:8001/api/v1/weather";
         $client = new Client();
 
         $response = $client->get($apiUrl);
@@ -119,20 +119,32 @@ class SiteController extends Controller
 
         $temperature = $data['main']['temp'];
         $weatherDescription = $data['weather'][0]['description'];
+
+        // if (strpos(strtolower('rain'),strtolower($weatherDescription) )!== true ) {
+        //     return redirect()->route('dashboard', [
+        //         'temp' => $temperature,
+        //         'weather' => $weatherDescription,
+        //     ]);
+        // }if(strpos(strtolower('thunderstorm'),strtolower($weatherDescription) )!== true ) {
+        //     return redirect()->route('dashboard', [
+        //         'temp' => $temperature,
+        //         'weather' => $weatherDescription,
+        //     ]);
+        // }
 //$weatherDescription
-        $sites = Site::where('weather_preferable', 'LIKE', '%storm%')->get();
+        // $sites = Site::where('weather_preferable', 'LIKE', '%sol%')->get();
+        $sites = Site::where('weather_preferable', 'LIKE', '%'.$weatherDescription.'%')->get();
 
         return view('recommendation',compact('sites'));
     }
 
     public function getWeather()
     {
-        // $apiKey = 'c75fdf7c5e7cd7eb463edaac441ed452';
-        // $city = 'Cartagena,CO';
+        $apiKey = 'c75fdf7c5e7cd7eb463edaac441ed452';
+        $city = 'Cartagena,CO';
 
-        // $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric&lang=es";
-        $apiUrl = "http:/localhost:8001/api/v1/weather";
-
+        $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric";
+        // $apiUrl = "localhost:8001/api/v1/weather";
         $client = new Client();
 
         $response = $client->get($apiUrl);

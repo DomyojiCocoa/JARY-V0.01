@@ -21,7 +21,7 @@
         </style>
     </head>
     <body class="font-sans text-gray-900 antialiased backdrop-blur-md backdrop-filter backdrop-blur">
-        
+
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 z-1 ">
             <div>
                 <a href="/">
