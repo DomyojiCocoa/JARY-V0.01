@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('weather_preferable');
             $table->string('schedule_open');
             $table->string('schedule_close');
-            $table->string('url_img');
-            $table->string('url_map');
+            $table->string('url_img',63000);
+            $table->string('url_map',63000);
             $table->timestamps();
         });
     }
