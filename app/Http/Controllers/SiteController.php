@@ -119,21 +119,8 @@ class SiteController extends Controller
         $temperature = $data['main']['temp'];
         $weatherDescription = $data['weather'][0]['description'];
 
-        // if (strpos(strtolower('rain'),strtolower($weatherDescription) )!== true ) {
-        //     return redirect()->route('dashboard', [
-        //         'temp' => $temperature,
-        //         'weather' => $weatherDescription,
-        //     ]);
-        // }if(strpos(strtolower('thunderstorm'),strtolower($weatherDescription) )!== true ) {
-        //     return redirect()->route('dashboard', [
-        //         'temp' => $temperature,
-        //         'weather' => $weatherDescription,
-        //     ]);
-        // }
-//$weatherDescription
-
-        $sites = Site::where('weather_preferable', 'LIKE', '%sol%')->get();
-        // $sites = Site::where('weather_preferable', 'LIKE', '%'.$weatherDescription.'%')->get();
+        // $sites = Site::where('weather_preferable', 'LIKE', '%sol%')->get();
+        $sites = Site::where('weather_preferable', 'LIKE', '%'.$weatherDescription.'%')->get();
 
         return view('recommendation',compact('sites'));
 
@@ -145,7 +132,7 @@ class SiteController extends Controller
         $city = 'Cartagena,CO';
 
         $apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric";
-        // $apiUrl = "localhost:8001/api/v1/weather";
+        // $apiUrl = "localhost:8001/api/v1/weather";   
         $client = new Client();
 
         $response = $client->get($apiUrl);
