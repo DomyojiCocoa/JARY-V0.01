@@ -20,19 +20,19 @@
                         <form action="{{ route('user.create') }}" method="get">
                             <label for="" class="text-[#fcb815]">Nombre</label>
                             <div>
-                                <input type="text" name="name" placeholder="Ingrese nombre">
+                                <input required type="text" name="name" placeholder="Ingrese nombre">
                             </div>
                             <label for="" class="text-[#fcb815]">Email</label>
                             <div>
-                                <input type="email" name="email" placeholder="Ingrese correo">
+                                <input required type="email" name="email" placeholder="Ingrese correo">
                             </div>
                             <label for="" class="text-[#fcb815]">Contraseña</label>
                             <div>
-                                <input type="password" name="password" placeholder="Ingrese contraseña">
+                                <input required type="password" name="password" placeholder="Ingrese contraseña">
                             </div>
                             <label for="" class="text-[#fcb815]">Rol</label>
                             <div>
-                                <select name="rol" id="">
+                                <select name="rol" id="" required>
                                     <option value="Administrador">Administrador</option>
                                     <option value="Usuario" selected>Usuario</option>
                                 </select>
@@ -54,10 +54,11 @@
         <table class="m-w-full  divide-y divide-gray-200">
             <thead class="bg-[#1e293b]">
             <tr>
-                <th scope="col" class="px-6 py-3 text-left text-base font-medium text-white uppercase tracking-wider text-center">ID</th>
-                <th scope="col" class="px-6 py-3 text-left text-base font-medium text-white uppercase tracking-wider text-center">Nombre</th>
-                <th scope="col" class="px-6 py-3 text-left  text-base font-medium text-white uppercase tracking-wider text-center">E-mail</th>
-                <th scope="col" class="px-6 py-3 text-left text-base font-medium text-white uppercase tracking-wider text-center">Opciones</th>
+                <th scope="col" class="px-6 py-3  text-base font-medium text-white uppercase tracking-wider text-center">ID</th>
+                <th scope="col" class="px-6 py-3  text-base font-medium text-white uppercase tracking-wider text-center">Nombre</th>
+                <th scope="col" class="px-6 py-3   text-base font-medium text-white uppercase tracking-wider text-center">E-mail</th>
+                <th scope="col" class="px-6 py-3   text-base font-medium text-white uppercase tracking-wider text-center">Rol</th>
+                <th scope="col" class="px-6 py-3  text-base font-medium text-white uppercase tracking-wider text-center">Opciones</th>
             </tr>
             </thead>
             <tbody class="bg-white divide-y divide-black">
@@ -66,6 +67,12 @@
                     <td class="px-6 py-4 whitespace-nowrap text-center text-black">{{ $user->id }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-center text-black">{{ $user->name }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-center text-black">{{ $user->email }}</td>
+                    @if ($user->roles->first()->name == 'Administrador')
+                        <td class="px-6 py-4 whitespace-nowrap text-center bg-[#fcb815] rounded-full">{{ $user->roles->first()->name }}</td>
+                    @else
+                        <td class="px-6 py-4 whitespace-nowrap text-center  bg-[#EF4444] rounded-full">{{ $user->roles->first()->name }}</td>
+                        
+                    @endif
                     <td class="px-6 py-4 whitespace-nowrap text-center flex">
                         <div x-data="{ showModal: false }">
                             <div>
@@ -90,12 +97,24 @@
                                                 @method('put')
                                                 <label for="" class="text-[#fcb815] font-semibold">Nombre del usuario</label>
                                                 <div>
-                                                    <input type="text" placeholder="Usuario" name="name" value="{{ $user->name }}">
+                                                    <input required type="text" placeholder="Usuario" name="name" value="{{ $user->name }}">
 
                                                 </div>
                                                 <label for="" class="text-[#fcb815] font-semibold">Email</label>
                                                 <div>
-                                                    <input type="text" placeholder="Email" name="email" value="{{ $user->email }}">
+                                                    <input required type="text" placeholder="Email" name="email" value="{{ $user->email }}">
+                                                </div>
+                                                <label for="" class="text-[#fcb815] font-semibold">Rol</label>
+                                                <div>
+                                                    <select name="rol" id="" required>
+                                                        @if ($user->roles->first()->name == 'Administrador')
+                                                            <option value="Administrador" selected>Administrador</option>    
+                                                            <option value="Usuario" >Usuario</option>
+                                                        @else
+                                                            <option value="Administrador" >Administrador</option>    
+                                                            <option value="Usuario" selected>Usuario</option>
+                                                        @endif
+                                                    </select>
                                                 </div>
                                                 <div class="flex justify-center items-center pt-7">
                                                     <button type="submit" class="w-23 bg-red-500 font-bold py-2 px-2 rounded hover:bg-[#fcb815]" >Actualizar</button>

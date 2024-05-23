@@ -20,18 +20,18 @@
                         <h2 class="text-xl font-semibold mb-4 text-[#fcb815]">Agregar nuevo sitio</h2>
                         <form action="{{ route('site.create') }}" method="get">
                             <label for="name" class="text-[#fcb815]">Nombre del sitio</label>
-                            <input type="text" name="name" class="w-full mb-2">
+                            <input type="text" name="name" class="w-full mb-2" required>
                             <label for="address" class="text-[#fcb815]">Dirección</label>
-                            <input type="text" name="address" class="w-full mb-2">
+                            <input type="text" name="address" class="w-full mb-2" required>
                             <div>
                                 <label for="hora" class="text-[#fcb815]">Hora de inicio</label>
                                 <div>
-                                    <input type="time" name="hora" class="w-full mb-2">
+                                    <input type="time" name="hora" class="w-full mb-2" required>
                                 </div>
                             </div>
                             <label for="horasalida" class="text-[#fcb815]">Hora de cierre</label>
                             <div>
-                                <input type="time" name="horasalida" class="w-full mb-2">
+                                <input type="time" name="horasalida" class="w-full mb-2" required>
                             </div>
                             <label for="climas" class="text-[#fcb815]">Tipo de Clima</label>
                             <div>
@@ -39,11 +39,11 @@
                             </div>
                             <label for="url_img" class="text-[#fcb815]">URL de la foto</label>
                             <div>
-                                <input type="text" name="url_img" class="w-full mb-2">
+                                <input type="text" name="url_img" class="w-full mb-2" required>
                             </div>
                             <label for="url_map" class="text-[#fcb815]">URL de dirección</label>
                             <div>
-                                <input type="text" name="url_map" class="w-full mb-2">
+                                <input type="text" name="url_map" class="w-full mb-2" required>
                             </div>
                             <div class="flex justify-center items-center pt-7">
                                 <button type="submit" class="w-20 bg-white font-bold py-2 px-4 rounded hover:bg-[#fcb815]">Enviar</button>
@@ -74,10 +74,10 @@
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap"><img src="{{ $site->url_img }}" alt="" class=" "></td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $site->name_site }}</td>
-                        <td class="px-6 py-4">{{ $site->address }}</td>
+                        <td class="px-6 py-4 ">{{ $site->address }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $site->schedule_open }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $site->schedule_close }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ $site->weather_preferable }}</td>
+                        <td class="px-6 py-4 ">{{ $site->weather_preferable }}</td>
                         <td class="px-6 py-4 whitespace-nowrap flex justify-center ">
                             <div x-data="{ showModal: false }" class="relative pt-20">
                                 <button @click="showModal = true" class="bg-[#fcb815] hover:bg-[#f89f0e] text-white font-bold py-2 px-4 rounded ">

@@ -63,7 +63,7 @@
                                 <div class="flex flex-col space-y-4 ">
                                     <div class="bg-white p-4 rounded-lg shadow-md ">
                                         <h3 class="text-lg font-bold">{{ $review->username }}</h3>                                        
-                                        <p class="text-gray-700 TEXT-FIT">{{ $review->comment }}</p>
+                                        <p class="text-gray-700 text-fit">{{ $review->comment }}</p>
                                     </div>                                                                  
                                 </div>
                             </div>

@@ -131,8 +131,9 @@ class SiteController extends Controller
         //     ]);
         // }
 //$weatherDescription
-        // $sites = Site::where('weather_preferable', 'LIKE', '%sol%')->get();
-        $sites = Site::where('weather_preferable', 'LIKE', '%'.$weatherDescription.'%')->get();
+
+        $sites = Site::where('weather_preferable', 'LIKE', '%sol%')->get();
+        // $sites = Site::where('weather_preferable', 'LIKE', '%'.$weatherDescription.'%')->get();
 
         return view('recommendation',compact('sites'));
 

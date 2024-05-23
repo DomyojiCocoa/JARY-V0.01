@@ -3,7 +3,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<select multiple class="select2 w-64"  name="climas[]" >
+<select multiple class="select2 w-64"  name="climas[]" required>
     <option value="clear sky">Cielo Despejado</option>
     <option value="few clouds">Algo de nubes</option>
     <option value="scattered clouds">scattered clouds</option>
