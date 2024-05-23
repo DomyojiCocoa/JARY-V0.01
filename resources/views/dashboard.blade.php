@@ -46,7 +46,7 @@
 
                 @else
 
-                <button  class="bg-white hover:bg-red  rounded-lg w-32 h-12 hover:bg-[#FE5937] hover:text-white font-bold transition ease-in-out"><a href="{{ route('recommendation') }}">Generar guia</a></button>
+                <button  class="bg-white hover:bg-red  rounded-lg w-32 h-12 hover:bg-[#FE5937] hover:text-white font-bold transition ease-in-out"><a href="{{ route('recommendation') }}">Ver</a></button>
                 @endif
             </div>
         </div>
