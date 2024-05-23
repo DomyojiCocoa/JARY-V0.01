@@ -4,12 +4,10 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <select multiple class="select2 w-64"  name="climas[]" >
-    <option value="	clear sky">	Cielo Despejado</option>
+    <option value="clear sky">Cielo Despejado</option>
     <option value="few clouds">Algo de nubes</option>
     <option value="scattered clouds">scattered clouds</option>
     <option value="broken clouds">broken clouds</option>
-    <option value="shower rain">Cerenando</option>
-    <option value="rain">LLuvia</option>
 </select>
 
 <script>
