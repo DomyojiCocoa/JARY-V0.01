@@ -15,7 +15,7 @@
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <button type="submit">
                                 <img src="{{ $site->url_img }}" class="absolute block w-full h-full object-cover" alt="{{ $site->name_site }}">
-                                <h1 class="absolute bottom-4 left-4 text-sm sm:text-4xl md:text-2xl lg:text-4xl text-red-500">{{ $site->name_site }}</h1>
+                                <h1 class="absolute bottom-4 left-4 text-4xl sm:text-7xl md:text-7xl lg:text-4xl text-black">{{ $site->name_site }}</h1>
 
                             </button>
                         </div>

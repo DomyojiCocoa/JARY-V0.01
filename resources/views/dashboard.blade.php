@@ -3,9 +3,12 @@
         .prueba {
             background-image: url("../img/ct.png");
         }
+        .xx{
+            -webkit-background-clip: text;
+        }
     </style>
     <div class="prueba h-screen p-28">
-        <h1 class="text-[#FFFCD0] text-5xl sm:text-8xl md:text-9xl lg:text-10xl xl:text-11xl text-center font-semibold">Clima actual</h1>
+        <h1 class="text-[#FFFCD0] text-5xl sm:text-8xl md:text-9xl lg:text-10xl xl:text-11xl text-center font-semibold  bg-custom-image bg-center text-transparent xx ">Clima actual</h1>
         <h2 class="text-[#FFFCD0] text-3xl text-center	 font-extrabold pt-7" id="ola">{{ $temp . "°, ". $weather }}</h2>
     </div>
     <section class="bg-[#0F172A] w-full h-36 pl-12 items-center">
@@ -16,11 +19,11 @@
             </h2>
             <div class=" pr-1">
                 @if ($weather == 'shower rain' || $weather == 'rain'|| $weather == 'thunderstorm'|| $weather == 'snow'|| $weather == 'mist'|| $weather == 'thunderstorm with light rain'|| $weather == 'thunderstorm with rain'|| $weather == '	thunderstorm with heavy rain'|| $weather == 'light thunderstorm'|| $weather == 'heavy thunderstorm'|| $weather == 'ragged thunderstorm'|| $weather == 'thunderstorm with light drizzle'|| $weather == 'thunderstorm with drizzle'|| $weather == 'thunderstorm with heavy drizzle'|| $weather == 'light intensity drizzle'|| $weather == 'drizzle'|| $weather == 'heavy intensity drizzle'|| $weather == 'light intensity drizzle rain'|| $weather == 'drizzle rain'|| $weather == 'heavy intensity drizzle rain'|| $weather == 'shower rain and drizzle'|| $weather == 'heavy shower rain and drizzle'|| $weather == 'shower drizzle'|| $weather == 'light rain'|| $weather == 'moderate rain'|| $weather == 'heavy intensity rain'|| $weather == 'very heavy rain'|| $weather == 'extreme rain'|| $weather == 'freezing rain'|| $weather == 'light intensity shower rain'|| $weather == 'shower rain'|| $weather == 'heavy intensity shower rain'|| $weather == 'ragged shower rain'|| $weather == ''|| $weather == ''|| $weather == ''|| $weather == ''|| $weather == ''|| $weather == ''|| $weather == ''|| $weather == ''|| $weather == ''|| $weather == '')
-                    
+
                     <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-white hover:bg-red  rounded-lg w-32 h-12 hover:bg-[#FE5937] hover:text-white font-bold transition ease-in-out" type="button">
                         Generar guia
                         </button>
-                        
+
                         <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                             <div class="relative p-4 w-full max-w-md max-h-full">
                                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -35,14 +38,14 @@
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                                         </svg>
                                         <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Las condiciones climaticas no permiten la visita a sitios</h3>
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-    
+
                 @else
-                    
+
                 <button  class="bg-white hover:bg-red  rounded-lg w-32 h-12 hover:bg-[#FE5937] hover:text-white font-bold transition ease-in-out"><a href="{{ route('recommendation') }}">Generar guia</a></button>
                 @endif
             </div>
