@@ -2,11 +2,11 @@
 <x-app-layout>
     <div x-data="{ showModal: false }" class="bg-Color2">
         <div class="flex p-8">
-            
+
             <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#fcb815] hover:bg-[#f89f0e]" type="button">
                 Añadir Usuario +
                 </button>
-                
+
                 <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                     <div class="relative p-4 w-full max-w-md max-h-full">
                         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -16,24 +16,24 @@
                                 </svg>
                                 <span class="sr-only">Close modal</span>
                             </button>
-                            <div class="p-4 md:p-5 text-center">
+                            <div class="p-4 md:p-5 text-center bg-Color2 border-[#fcb815] border-2  rounded-lg shadow-lg ">
                                 <h2 class="text-xl font-semibold mb-4 text-[#fcb815] text-center">Crear usuario</h2>
                                 <form action="{{ route('user.create') }}" method="get">
                                     <label for="" class="text-[#fcb815]">Nombre</label>
-                                    <div>
-                                        <input required type="text" name="name" placeholder="Ingrese nombre">
+                                    <div class="pt-2 pb-2">
+                                        <input required type="text" name="name" placeholder="Ingrese nombre" class="rounded-lg">
                                     </div>
                                     <label for="" class="text-[#fcb815]">Email</label>
-                                    <div>
-                                        <input required type="email" name="email" placeholder="Ingrese correo">
+                                    <div class="pt-2 pb-2">
+                                        <input required type="email" name="email" placeholder="Ingrese correo" class="rounded-lg">
                                     </div>
                                     <label for="" class="text-[#fcb815]">Contraseña</label>
-                                    <div>
-                                        <input required type="password" name="password" placeholder="Ingrese contraseña">
+                                    <div class="pt-2 pb-2">
+                                        <input required type="password" name="password" placeholder="Ingrese contraseña" class="rounded-lg">
                                     </div>
                                     <label for="" class="text-[#fcb815]">Rol</label>
-                                    <div>
-                                        <select name="rol" id="" required>
+                                    <div class="pt-2 pb-2">
+                                        <select name="rol" id="" required class="rounded-lg">
                                             <option value="Administrador">Administrador</option>
                                             <option value="Usuario" selected>Usuario</option>
                                         </select>
@@ -46,10 +46,10 @@
                         </div>
                     </div>
                 </div>
-    
+
         </div>
-    
-    
+
+
 
     <div class="bg-Color2">
     <div class="overflow-x-auto w-full flex justify-center" >
@@ -72,23 +72,23 @@
                     @if ($user->roles->first()->name == 'Administrador')
                         <td class="px-6 py-4 whitespace-nowrap text-center ">{{ $user->roles->first()->name }}</td>
                     @else
-                        <td class="px-6 py-4 whitespace-nowrap text-center  ">{{ $user->roles->first()->name }}</td>   
+                        <td class="px-6 py-4 whitespace-nowrap text-center  ">{{ $user->roles->first()->name }}</td>
                     @endif
                     <td class="px-6 py-4 whitespace-nowrap text-center flex">
-                        
+
 
                         <!-- Modal toggle -->
                         <button data-modal-target="default-modal{{ $user->id }}" data-modal-toggle="default-modal{{ $user->id }}" class="block text-white bg-[#fcb815]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
                         </button>
-                        
+
                         <!-- Main modal -->
                         <div id="default-modal{{ $user->id }}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <div class=" p-4 w-92 max-w-2xl max-h-full">
                                 <!-- Modal content -->
-                                
-                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                    
+
+                                <div class="relative w-92 bg-Color2 border-[#fcb815] border-2  rounded-lg shadow-lg">
+
                                     <!-- Modal body -->
                                     <div class="p-1">
                                             <!-- Contenido del modal -->
@@ -109,10 +109,10 @@
                                                 <div>
                                                     <select name="rol" id="" required>
                                                         @if ($user->roles->first()->name == 'Administrador')
-                                                            <option value="Administrador" selected>Administrador</option>    
+                                                            <option value="Administrador" selected>Administrador</option>
                                                             <option value="Usuario" >Usuario</option>
                                                         @else
-                                                            <option value="Administrador" >Administrador</option>    
+                                                            <option value="Administrador" >Administrador</option>
                                                             <option value="Usuario" selected>Usuario</option>
                                                         @endif
                                                     </select>
@@ -123,17 +123,17 @@
 
                                             </form>
                                         </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
-                        
-                        
-                        
-                        <button data-modal-target="popup-modal2{{ $user->id }}" data-modal-toggle="popup-modal2{{ $user->id }}" class="block text-white bg-red-700 hover:bg-Color1 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
-                        </button>
-                            
+                        <div class="pl-4">
+
+                            <button data-modal-target="popup-modal2{{ $user->id }}" data-modal-toggle="popup-modal2{{ $user->id }}" class="block text-white bg-red-700 hover:bg-Color1 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+                            </button>
+                        </div>
+
                             <div id="popup-modal2{{ $user->id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                 <div class="relative p-4 w-full max-w-md max-h-full">
                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -161,8 +161,8 @@
                                     </div>
                                 </div>
                             </div>
-                            
-    
+
+
                         {{-- <div x-data="{ showModal: false }">
                             <div>
                                 <button @click="showModal = true" class="bg-[#fcb815] hover:bg-[#f89f0e] text-white font-bold py-2 px-4 rounded">
@@ -197,10 +197,10 @@
                                                 <div>
                                                     <select name="rol" id="" required>
                                                         @if ($user->roles->first()->name == 'Administrador')
-                                                            <option value="Administrador" selected>Administrador</option>    
+                                                            <option value="Administrador" selected>Administrador</option>
                                                             <option value="Usuario" >Usuario</option>
                                                         @else
-                                                            <option value="Administrador" >Administrador</option>    
+                                                            <option value="Administrador" >Administrador</option>
                                                             <option value="Usuario" selected>Usuario</option>
                                                         @endif
                                                     </select>

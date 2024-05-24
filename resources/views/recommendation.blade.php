@@ -7,9 +7,9 @@
             <h1 class="text-center text-3xl sm:text-3xl md:text-4xl pb-5 text-[#fcb815]">Recomendaciones para ti</h1>
             <h2 class="text-center text-lg md:text-2xl pb-2 text-white">Esperamos que te guste :)</h2>
 
-            <div id="default-carousel" class="relative w-full max-w-4xl mx-auto" data-carousel="slide">
+            <div id="default-carousel" class="relative w-92 max-w-4xl mx-auto" data-carousel="slide">
                 <!-- Carousel wrapper -->
-                <div class="relative h-72 md:h-96 overflow-hidden rounded-lg">
+                <div class="relative h-72  md:h-96 overflow-hidden rounded-lg">
                     @foreach ($sites as $site)
                     <form action="{{ route('rev.show', $site->id) }}" method="get">
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>

@@ -22,5 +22,20 @@ class UserSeeder extends Seeder
         User::factory(30)->create()->each(function ($user) {
             $user->assignRole('Usuario');
         });
+        User::create([
+            'name' => 'Yeison',
+            'email' => 'yeison@gmail.com',
+            'password' => '124'
+        ])->assignRole('Administrador');
+        User::create([
+            'name' => 'Rafa',
+            'email' => 'rafa@gmail.com',
+            'password' => '123'
+        ])->assignRole('Administrador');
+        User::create([
+            'name' => 'JesusMa',
+            'email' => 'jesusMa@gmail.com',
+            'password' => '123'
+        ])->assignRole('Administrador');
     }
 }
