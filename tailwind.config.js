@@ -21,7 +21,8 @@ export default {
                 bgCards: "#eae6d7",
             },
             backgroundImage: {
-                'custom-image': "url('/public/img/zzz.gif')",
+                'custom-image': "url('/public/img/vb.gif')",
+
             }
         },
     },

@@ -66,6 +66,7 @@ class UserController extends Controller
     public function update(Request $request,String $id)
     {
         $user = User::find($id);
+        $user->syncRoles([$request->rol]);
 
         $user->name = $request->name;
         $user->email = $request->email;
