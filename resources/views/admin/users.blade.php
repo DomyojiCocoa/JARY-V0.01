@@ -20,19 +20,19 @@
                         <form action="{{ route('user.create') }}" method="get">
                             <label for="" class="text-[#fcb815]">Nombre</label>
                             <div>
-                                <input type="text" name="name" placeholder="Ingrese nombre">
+                                <input type="text" name="name" placeholder="Ingrese nombre" required>
                             </div>
-                            <label for="" class="text-[#fcb815]">Email</label>
+                            <label for="" class="text-[#fcb815]" >Email</label>
                             <div>
-                                <input type="email" name="email" placeholder="Ingrese correo">
+                                <input type="email" name="email" placeholder="Ingrese correo" required>
                             </div>
                             <label for="" class="text-[#fcb815]">Contraseña</label>
                             <div>
-                                <input type="password" name="password" placeholder="Ingrese contraseña">
+                                <input type="password" name="password" placeholder="Ingrese contraseña" required>
                             </div>
                             <label for="" class="text-[#fcb815]">Rol</label>
                             <div>
-                                <select name="rol" id="">
+                                <select name="rol" id="" required>
                                     <option value="Administrador">Administrador</option>
                                     <option value="Usuario" selected>Usuario</option>
                                 </select>
@@ -90,12 +90,12 @@
                                                 @method('put')
                                                 <label for="" class="text-[#fcb815] font-semibold">Nombre del usuario</label>
                                                 <div>
-                                                    <input type="text" placeholder="Usuario" name="name" value="{{ $user->name }}">
+                                                    <input type="text" placeholder="Usuario" name="name" value="{{ $user->name }}" required>
 
                                                 </div>
                                                 <label for="" class="text-[#fcb815] font-semibold">Email</label>
                                                 <div>
-                                                    <input type="text" placeholder="Email" name="email" value="{{ $user->email }}">
+                                                    <input type="text" placeholder="Email" name="email" value="{{ $user->email }}" required>
                                                 </div>
                                                 <div class="flex justify-center items-center pt-7">
                                                     <button type="submit" class="w-23 bg-red-500 font-bold py-2 px-2 rounded hover:bg-[#fcb815]" >Actualizar</button>
