@@ -4,13 +4,9 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <select multiple class="select2 w-48 rounded-lg pb-2"  name="climas[]" required>
-    <option value="	clear sky">	clear sky</option>
-    <option value="few clouds">few clouds</option>
-    <option value="scattered clouds">scattered clouds</option>
-    <option value="broken clouds">broken clouds</option>
-    <option value="shower rain">shower rain</option>
-    <option value="rain">rain</option>
-    <option value="thunderstorm">thunderstorm</option>
+    <option value="	clear sky">Cielo Despejado</option>
+    <option value="few clouds">Algo de nubes</option>
+    <option value="scattered clouds">Nubes dispersas</option>
 </select>
 
 <script>

@@ -6,10 +6,8 @@
 <select multiple class="select2 w-64"  name="climas[]" required>
     <option value="clear sky">Cielo Despejado</option>
     <option value="few clouds">Algo de nubes</option>
-    <option value="scattered clouds">scattered clouds</option>
-    <option value="broken clouds">broken clouds</option>
+    <option value="scattered clouds">Nubes dispersas</option>
 </select>
-
 
 <script>
     $(document).ready(function() {

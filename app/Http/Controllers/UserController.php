@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
+
+    //LJAHSDJKLAHSD
     /**
      * Display a listing of the resource.
      */

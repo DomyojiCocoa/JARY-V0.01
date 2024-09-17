@@ -15,13 +15,10 @@ class UserSeeder extends Seeder
     {
         //
         User::create([
-            'name' => 'cocoa',
+            'name' => 'Cocoa',
             'email' => 'cocoa@gmail.com',
             'password' => '1043637234'
         ])->assignRole('Administrador');
-        User::factory(30)->create()->each(function ($user) {
-            $user->assignRole('Usuario');
-        });
         User::create([
             'name' => 'Yeison',
             'email' => 'yeison@gmail.com',
@@ -33,9 +30,12 @@ class UserSeeder extends Seeder
             'password' => '123'
         ])->assignRole('Administrador');
         User::create([
-            'name' => 'JesusMa',
-            'email' => 'jesusMa@gmail.com',
+            'name' => 'Jesusma',
+            'email' => 'jesusma@gmail.com',
             'password' => '123'
         ])->assignRole('Administrador');
+        User::factory(10)->create()->each(function ($user) {
+            $user->assignRole('Usuario');
+        });
     }
 }
